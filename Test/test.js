@@ -1,3 +1,10 @@
+var variable = {
+	type:"wire",
+	length:1,
+	id:"!",
+	name:"clock_enable"
+};	
+
 //~ Affiche dans la console et dans la textarea la chaine str
 function affiche(str){
 	var zoneTexte = document.getElementById("textDiv");
@@ -19,5 +26,5 @@ function count(str,char){
 
 			
 function parse(vcd){
-	
+	affiche(variable.name);
 }
