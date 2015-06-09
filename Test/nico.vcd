@@ -1,0 +1,15 @@
+$date
+  Mon Jun  8 12:04:14 2015
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 8 ! ma[7:0] $end
+$var reg 8 " dp2m[7:0] $end
+$enddefinitions $end
+#0
+bUUUUUUUU !
+bUUUUUUUU "

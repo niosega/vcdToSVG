@@ -19,17 +19,18 @@
 				
 				var toDoOnLoad = function(){
 					  var text = reader.result;
-					  affiche(count(text,'1'));
+					  //~ affiche(count(text,'1'));
 					  parse(text);
-					  affiche("Parsing done for "+file.name+" !");
+					  //~ affiche("Parsing done for "+file.name+" !");
 				};
 				
 				var toDoOnLoadStart = function(){
-					affiche("Starting parsing "+file.name+" !");
+					clear();
+					//~ affiche("Starting parsing "+file.name+" !");
 				}
 				
 				var toDoOnProgress = function(){
-					affiche("Reading "+file.name+" ...");
+					//~ affiche("Reading "+file.name+" ...");
 				}
 				
 				reader.onload = toDoOnLoad;
