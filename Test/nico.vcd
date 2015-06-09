@@ -8,8 +8,13 @@ $timescale
   1 fs
 $end
 $var reg 8 ! ma[7:0] $end
-$var reg 8 " dp2m[7:0] $end
+$var reg 4 " dp2m[3:0] $end
+$var wire 1 & ce $end
 $enddefinitions $end
 #0
 bUUUUUUUU !
-bUUUUUUUU "
+1&
+bUUUU "
+#2
+0&
+bUUUUUU11 !

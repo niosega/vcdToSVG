@@ -54,7 +54,10 @@ function changeMapValue(map,key,newValue){
 	var nouvelleVariable = new Variable(ancienneVariable.type,ancienneVariable.length,ancienneVariable.id,ancienneVariable.name,newValue);
 	map.set(ancienneVariable.id,nouvelleVariable);
 }
-			
+	
+//~ Parse le fichier vcd
+//~ listeVariables contient la liste des variables
+//~ etat represente l'etat des valeurs au cours du temps 
 function parse(vcd){
 	
 	//~ Tableau contenant les lignes du vcd
@@ -91,8 +94,25 @@ function parse(vcd){
 	
 	//~ -------  VALEURS ------- ~//
 	affiche("---- DEBUT VALEURS ----");
+	var temps="";
+	var idVariable ="";
+	var valeurVariable ="";
 	for(i;i<lignes.length;i++){
 		mots = lignes[i].split(' ');
+		if(mots[0].charAt(0)=='#'){
+			temps = mots[0].substring(1,mots[0].length);
+			affiche("Nous sommes au temps : "+temps);
+		}
+		else if(mots[0].length==2){
+			valeurVariable=mots[0].charAt(0);
+			idVariable=mots[0].charAt(1);
+			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
+		}
+		else{
+			idVariable = mots[1];
+			valeurVariable = mots[0].substring(1,mots[0].length);
+			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
+		}
 	}
 	affiche("---- FIN VALEURS ----");
 }
