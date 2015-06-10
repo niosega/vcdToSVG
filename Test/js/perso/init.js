@@ -10,7 +10,7 @@ function openFile(event) {
 	
 	var toDoOnLoad = function(){
 		  var text = reader.result;
-		  traite(text);
+		  testSvg(text);
 	};
 	
 	var toDoOnLoadStart = function(){
@@ -35,14 +35,15 @@ function doOnLoad(){
 	mySlider = new dhtmlXSlider("slider");
 	
 	mySlider.attachEvent("onChange", function(value){
-
+		generateSVG(value);
 	});
 	
 	mySlider.attachEvent("onSlideEnd", function(value){
 		console.log("Valeur slider : "+value);
+		//~ generateSVG(value);
 	});
 	
-	testSvg();
+	
 }
 
 //~ Ce qu'il se passe à la fermeture de la page
