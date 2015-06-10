@@ -89,7 +89,6 @@ function copyOldValue(map,key,newTime){
 
 //~ Parse le fichier vcd
 //~ listeVariables contient la liste des variables
-//~ etat represente l'etat des valeurs au cours du temps 
 function parse(vcd){
 	
 	//~ Tableau contenant les lignes du vcd
@@ -109,7 +108,7 @@ function parse(vcd){
 		mots = lignes[i].split(' ');
 		if(mots[0]=="$enddefinitions"){
 			b=false;
-			afficheMap(listeVariables);
+			//~ afficheMap(listeVariables);
 		}
 		else if(mots[0]=="$scope"){
 			scope=scope+mots[2]+".";
@@ -151,26 +150,29 @@ function parse(vcd){
 			listeVariables.forEach(function(value,key){
 				copyOldValue(listeVariables,key,temps);
 			},listeVariables)
-			affiche("Nous sommes au temps : "+temps);
+			//~ affiche("Nous sommes au temps : "+temps);
 		}
 		else if(mots[0].length==2){
 			valeurVariable=mots[0].charAt(0);
 			idVariable=mots[0].charAt(1);
 			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
-			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
+			//~ affiche("Id : "+idVariable +" valeur : "+valeurVariable);
 		}
 		else{
 			idVariable = mots[1];
 			valeurVariable = mots[0].substring(1,mots[0].length);
 			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
-			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
+			//~ affiche("Id : "+idVariable +" valeur : "+valeurVariable);
 		}
 	}
 	affiche("---- FIN VALEURS ----");
 
-	
-	listeVariables.forEach(function(value,key){
-		value.afficheTemps();
-		//~ affiche(value.afficheTempsA("0"));
-	},listeVariables)
+	affiche("---- DEBUT AFFICHAGE ----");
+	for(var i in tableauTemps){
+		//~ affiche("Temps : "+tableauTemps[i]);
+		listeVariables.forEach(function(value,key){
+			//~ affiche(value.scope+value.name+" "+value.afficheTempsA(tableauTemps[i]));
+		},listeVariables)
+	}
+	affiche("---- FIN AFFICHAGE ----");
 }
