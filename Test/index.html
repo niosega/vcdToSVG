@@ -2,56 +2,22 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
 		<script language="Javascript" src="js/parser.js"></script>
 		<script src="js/svg.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/slider.css"/>
 		<script src="js/slider.js"></script>
+		<script src="js/init.js"></script>
 		
+		<link rel="stylesheet" type="text/css" href="css/slider.css"/>
+				
 	</head>
 
 	<body onload="doOnLoad();" onunload="doOnUnload();">
 		
-<!--
-		<textarea id="textDiv" rows="30" cols="150"></textarea><br>
--->
-		<div id="sliderObj"></div>
+
+		<div id="slider"></div>
 		
 		<svg id="svg"></svg>
-
-		<script>
-			//~ init();
-			var openFile = function(event) {
-				
-				var input = event.target;
-				var reader = new FileReader();
-				
-				var file = input.files[0];
-				
-				var toDoOnLoad = function(){
-					  var text = reader.result;
-					  //~ affiche(count(text,'1'));
-					  traite(text);
-					  //~ affiche("Parsing done for "+file.name+" !");
-				};
-				
-				var toDoOnLoadStart = function(){
-					clear();
-					//~ affiche("Starting parsing "+file.name+" !");
-				}
-				
-				var toDoOnProgress = function(){
-					//~ affiche("Reading "+file.name+" ...");
-				}
-				
-				reader.onload = toDoOnLoad;
-				reader.onloadstart=toDoOnLoadStart;
-				reader.onprogress= toDoOnProgress;
-				
-				reader.readAsText(file);
-				
-			};
-		</script>
-
 	
 		<input type='file' onchange='openFile(event)'><br>
 		

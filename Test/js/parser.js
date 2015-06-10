@@ -29,10 +29,8 @@ function Variable(type,length,id,scope,name) {
 	
 }
 
-//~ Affiche dans la console et dans la textarea la chaine str
+//~ Affiche dans la console 
 function affiche(str){
-	//~ var zoneTexte = document.getElementById("textDiv");
-	//~ zoneTexte.textContent=zoneTexte.textContent+"\n"+str+"\n";
 	console.log(str);
 }
 
@@ -43,24 +41,6 @@ function afficheMap(map){
 	},map)
 }
  
-//~ Vide la textarea 
-function clear(){
-	//~ var zoneTexte = document.getElementById("textDiv");
-	//~ zoneTexte.textContent="";
-}
-
-//~ Compte le nombre d'occurence du caractere char dans la chaine str
-function count(str,char){
-	var temp = str;
-	var compteur =0;
-	for(var i =0;i<str.length;i++){
-		if(str.charAt(i)==char){
-			compteur++;
-		}
-	}
-	return compteur;
-}
-
 //~ Change la valeur associé la clé key dans la map 
 function changeMapValue(map,key,newTime,newValue){
 	var ancienneVariable = map.get(key);
@@ -88,7 +68,6 @@ function copyOldValue(map,key,newTime){
 }
 
 //~ Parse le fichier vcd
-//~ listeVariables contient la liste des variables
 function parse(vcd){
 	
 	//~ Tableau contenant les lignes du vcd
@@ -101,14 +80,12 @@ function parse(vcd){
 	var scope=""; 
 	
 	//~ -------  VARIABLE ------- ~//
-	affiche("---- DEBUT VARIABLE ----");
 	var b = true;
 	var i = 0;
 	while(b==true){
 		mots = lignes[i].split(' ');
 		if(mots[0]=="$enddefinitions"){
 			b=false;
-			afficheMap(listeVariables);
 		}
 		else if(mots[0]=="$scope"){
 			scope=scope+mots[2]+".";
@@ -133,11 +110,8 @@ function parse(vcd){
 		}
 		i++;
 	}
-	affiche("---- FIN VARIABLE ----");
-	
 	
 	//~ -------  VALEURS ------- ~//
-	affiche("---- DEBUT VALEURS ----");
 	var temps="";
 	var idVariable ="";
 	var valeurVariable ="";
@@ -150,31 +124,18 @@ function parse(vcd){
 			listeVariables.forEach(function(value,key){
 				copyOldValue(listeVariables,key,temps);
 			},listeVariables)
-			affiche("Nous sommes au temps : "+temps);
 		}
 		else if(mots[0].length==2){
 			valeurVariable=mots[0].charAt(0);
 			idVariable=mots[0].charAt(1);
-			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
 			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
 		}
 		else if(mots[0].length>0){
 			idVariable = mots[1];
 			valeurVariable = mots[0].substring(1,mots[0].length);
-			affiche("Id : "+idVariable +" valeur : "+valeurVariable);
 			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
 		}
 	}
-	affiche("---- FIN VALEURS ----");
-
-	affiche("---- DEBUT AFFICHAGE ----");
-	for(var i in tableauTemps){
-		affiche("Temps : "+tableauTemps[i]);
-		listeVariables.forEach(function(value,key){
-			affiche(value.scope+value.name+" "+value.afficheTempsA(tableauTemps[i]));
-		},listeVariables)
-	}
-	affiche("---- FIN AFFICHAGE ----");
 	
 	return [listeVariables, tableauTemps];
 }
@@ -182,6 +143,13 @@ function parse(vcd){
 
 function traite(vcd){
 	[listeVariables,tableauTemps] = parse(vcd);
+	//~ afficheMap(listeVariables);
+	//~ for(var i in tableauTemps){
+		//~ affiche("Temps : "+tableauTemps[i]);
+		//~ listeVariables.forEach(function(value,key){
+			//~ affiche(value.scope+value.name+" "+value.afficheTempsA(tableauTemps[i]));
+		//~ },listeVariables)
+	//~ }
 	var s = Snap(500,500);
 	var otherRect = s.rect(200,200,50,50,10,10).attr({ stroke: '#123456', 'strokeWidth': 20, fill: 'green' });
 	var clickFunc = function () {
@@ -193,25 +161,6 @@ function traite(vcd){
 }
 
 
-var mySlider;
 
-function doOnLoad(){
-	mySlider = new dhtmlXSlider("sliderObj");
-	
-	mySlider.attachEvent("onChange", function(value){
-
-	});
-	
-	mySlider.attachEvent("onSlideEnd", function(value){
-		console.log("Valeur slider : "+value);
-	});
-}
-
-function doOnUnload(){
-	if (mySlider != null){
-		mySlider.unload();
-		mySlider = null;
-	}
-}
 
 
