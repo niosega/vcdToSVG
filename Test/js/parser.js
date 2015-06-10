@@ -31,8 +31,8 @@ function Variable(type,length,id,scope,name) {
 
 //~ Affiche dans la console et dans la textarea la chaine str
 function affiche(str){
-	var zoneTexte = document.getElementById("textDiv");
-	zoneTexte.textContent=zoneTexte.textContent+"\n"+str+"\n";
+	//~ var zoneTexte = document.getElementById("textDiv");
+	//~ zoneTexte.textContent=zoneTexte.textContent+"\n"+str+"\n";
 	console.log(str);
 }
 
@@ -45,8 +45,8 @@ function afficheMap(map){
  
 //~ Vide la textarea 
 function clear(){
-	var zoneTexte = document.getElementById("textDiv");
-	zoneTexte.textContent="";
+	//~ var zoneTexte = document.getElementById("textDiv");
+	//~ zoneTexte.textContent="";
 }
 
 //~ Compte le nombre d'occurence du caractere char dans la chaine str
@@ -175,4 +175,43 @@ function parse(vcd){
 		},listeVariables)
 	}
 	affiche("---- FIN AFFICHAGE ----");
+	
+	return [listeVariables, tableauTemps];
 }
+
+
+function traite(vcd){
+	[listeVariables,tableauTemps] = parse(vcd);
+	var s = Snap(500,500);
+	var otherRect = s.rect(200,200,50,50,10,10).attr({ stroke: '#123456', 'strokeWidth': 20, fill: 'green' });
+	var clickFunc = function () {
+		otherRect.transform('');
+		otherRect.animate({ transform: 'r360, 150,150' },2000, mina.bounce, null );
+	};
+
+	otherRect.click( clickFunc );
+}
+
+
+var mySlider;
+
+function doOnLoad(){
+	mySlider = new dhtmlXSlider("sliderObj");
+	
+	mySlider.attachEvent("onChange", function(value){
+
+	});
+	
+	mySlider.attachEvent("onSlideEnd", function(value){
+		console.log("Valeur slider : "+value);
+	});
+}
+
+function doOnUnload(){
+	if (mySlider != null){
+		mySlider.unload();
+		mySlider = null;
+	}
+}
+
+

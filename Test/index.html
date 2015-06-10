@@ -2,14 +2,24 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<script language="Javascript" src="test.js"></script>
+		<script language="Javascript" src="js/parser.js"></script>
+		<script src="js/svg.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/slider.css"/>
+		<script src="js/slider.js"></script>
+		
 	</head>
 
-	<body>
+	<body onload="doOnLoad();" onunload="doOnUnload();">
 		
+<!--
 		<textarea id="textDiv" rows="30" cols="150"></textarea><br>
+-->
+		<div id="sliderObj"></div>
 		
+		<svg id="svg"></svg>
+
 		<script>
+			//~ init();
 			var openFile = function(event) {
 				
 				var input = event.target;
@@ -20,7 +30,7 @@
 				var toDoOnLoad = function(){
 					  var text = reader.result;
 					  //~ affiche(count(text,'1'));
-					  parse(text);
+					  traite(text);
 					  //~ affiche("Parsing done for "+file.name+" !");
 				};
 				
