@@ -68,7 +68,7 @@ function copyOldValue(map,key,newTime){
 }
 
 //~ Parse le fichier vcd
-function parse(vcd){
+function parse(vcd,variableInteressante){
 	
 	//~ Tableau contenant les lignes du vcd
 	var lignes = vcd.split('\n');
@@ -97,7 +97,7 @@ function parse(vcd){
 				scope=scope+".";
 			}
 		}
-		else if(mots[0]=="$var"){
+		else if(mots[0]=="$var" && (variableInteressante.indexOf(mots[4])!=-1 || variableInteressante.length==0)){
 			var type = mots[1];
 			var length = mots[2];
 			var id = mots[3];
@@ -128,39 +128,23 @@ function parse(vcd){
 		else if(mots[0].length==2){
 			valeurVariable=mots[0].charAt(0);
 			idVariable=mots[0].charAt(1);
-			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
+			if(listeVariables.has(idVariable)==true){
+				changeMapValue(listeVariables,idVariable,temps,valeurVariable);
+			}
 		}
 		else if(mots[0].length>0){
 			idVariable = mots[1];
 			valeurVariable = mots[0].substring(1,mots[0].length);
-			changeMapValue(listeVariables,idVariable,temps,valeurVariable);
+			if(listeVariables.has(idVariable)==true){
+				changeMapValue(listeVariables,idVariable,temps,valeurVariable);
+			}
+		}
+		else{
+			
 		}
 	}
 	
 	return [listeVariables, tableauTemps];
 }
-
-
-function traite(vcd){
-	[listeVariables,tableauTemps] = parse(vcd);
-	//~ afficheMap(listeVariables);
-	//~ for(var i in tableauTemps){
-		//~ affiche("Temps : "+tableauTemps[i]);
-		//~ listeVariables.forEach(function(value,key){
-			//~ affiche(value.scope+value.name+" "+value.afficheTempsA(tableauTemps[i]));
-		//~ },listeVariables)
-	//~ }
-	var s = Snap(500,500);
-	var otherRect = s.rect(200,200,50,50,10,10).attr({ stroke: '#123456', 'strokeWidth': 20, fill: 'green' });
-	var clickFunc = function () {
-		otherRect.transform('');
-		otherRect.animate({ transform: 'r360, 150,150' },2000, mina.bounce, null );
-	};
-
-	otherRect.click( clickFunc );
-}
-
-
-
 
 

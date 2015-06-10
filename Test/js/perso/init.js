@@ -1,5 +1,6 @@
 var mySlider;
 
+//~ Ce qu'il se passe à l'ouverture du fichier
 function openFile(event) {
 				
 	var input = event.target;
@@ -13,7 +14,7 @@ function openFile(event) {
 	};
 	
 	var toDoOnLoadStart = function(){
-		clear();
+
 	}
 	
 	var toDoOnProgress = function(){
@@ -27,7 +28,8 @@ function openFile(event) {
 	reader.readAsText(file);
 	
 }
-			
+
+//~ Ce qu'il se passe à l'ouverture de la page 
 function doOnLoad(){
 			
 	mySlider = new dhtmlXSlider("slider");
@@ -39,8 +41,11 @@ function doOnLoad(){
 	mySlider.attachEvent("onSlideEnd", function(value){
 		console.log("Valeur slider : "+value);
 	});
+	
+	testSvg();
 }
 
+//~ Ce qu'il se passe à la fermeture de la page
 function doOnUnload(){
 	if (mySlider != null){
 		mySlider.unload();

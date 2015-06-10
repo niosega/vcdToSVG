@@ -3,24 +3,26 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
-		<script language="Javascript" src="js/parser.js"></script>
-		<script src="js/svg.js"></script>
-		<script src="js/slider.js"></script>
-		<script src="js/init.js"></script>
+		<script language="Javascript" src="js/perso/parser.js"></script>
+		<script language="Javascript" src="js/library/svg.js"></script>
+		<script language="Javascript" src="js/library/slider.js"></script>
+		<script language="Javascript" src="js/perso/init.js"></script>
+		<script language="Javascript" src="js/perso/svgGenerator.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="css/slider.css"/>
+		<link rel="stylesheet" type="text/css" href="css/library/slider.css"/>
 				
 	</head>
 
 	<body onload="doOnLoad();" onunload="doOnUnload();">
-		
-
-		<div id="slider"></div>
-		
-		<svg id="svg"></svg>
-	
-		<input type='file' onchange='openFile(event)'><br>
-		
+			
+			<div id="slider"></div><br><br>
+			
+			<div id="svgPlace" style="width: 99%; height: 85%; color: black; border: 2px solid ; padding: 5px;">
+				<svg id="svg" width="100%" height="100%"></svg>
+			</div><br>
+				
+			<input type='file' onchange='openFile(event)'><br>
+			
 	</body>
 
 </html>
