@@ -4,19 +4,24 @@ function traite(vcd){
 	//~ liste.push("ma");
 	[listeVariables,tableauTemps] = parse(vcd,liste);
 	
+	var compteur=0;
+	
 	afficheMap(listeVariables);
 	for(var i in tableauTemps){
-		affiche("Temps : "+tableauTemps[i]);
+		compteur=0;
+		affiche("\nTemps : "+tableauTemps[i]);
 		listeVariables.forEach(function(value,key){
 			affiche(value.scope+value.name+" "+value.afficheTempsA(tableauTemps[i]));
+			compteur++;
 		},listeVariables)
+		affiche("\nCOMPTEUR : "+compteur+"\n");
 	}
 	
 	
 }
 
 function testSvg(vcd){
-	//~ traite(vcd);
+	traite(vcd);
 	var clientHeight = document.getElementById('svgPlace').clientHeight;
 	var clientWidth = document.getElementById('svgPlace').clientWidth;
 	var s = Snap("#svg");
@@ -40,7 +45,7 @@ function testSvg(vcd){
 	
 	g.drag(move,start,stop);
 	
-	g.dblclick(onClickProc);
+	g.dblclick(onDoubleClickProc);
 	
 	
 }

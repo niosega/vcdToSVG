@@ -18,7 +18,12 @@ $enddefinitions $end
 #0
 bUUUUUUUU !
 1&
-bUUUU "
-#500000
-0&
 b1111 "
+#1
+0&
+#2
+1&
+#3
+b0000 "
+#7
+#8

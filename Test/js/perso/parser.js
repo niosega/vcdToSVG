@@ -31,7 +31,14 @@ function Variable(type,length,id,scope,name) {
 
 //~ Affiche dans la console 
 function affiche(str){
+	var zone = document.getElementById("comment");
+	zone.value = zone.value+"\n "+str;
 	console.log(str);
+}
+
+function clear(){
+		var zone = document.getElementById("comment");
+	zone.value = "";
 }
 
 //~ Affiche la map
@@ -63,13 +70,15 @@ function copyOldValue(map,key,newTime){
 	var nouvelleVariable = new Variable(ancienneVariable.type,ancienneVariable.length,ancienneVariable.id,ancienneVariable.scope,ancienneVariable.name);
 	var ancienneValeur = ancienneVariable.value;
 	nouvelleVariable.value = ancienneValeur;
+	nouvelleVariable.lastValue = valeurCourante;
+	//~ affiche("DEBUG : key : "+key+" time : "+newTime +" valeur : "+valeurCourante);
 	nouvelleVariable.value.set(newTime,valeurCourante);
 	map.set(ancienneVariable.id,nouvelleVariable);
 }
 
 //~ Parse le fichier vcd
 function parse(vcd,variableInteressante){
-	
+	clear();
 	//~ Tableau contenant les lignes du vcd
 	var lignes = vcd.split('\n');
 	//~ Tableau contenant les mots d'une ligne

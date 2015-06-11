@@ -31,7 +31,7 @@ function openFile(event) {
 
 //~ Ce qu'il se passe à l'ouverture de la page 
 function doOnLoad(){
-			
+	clear();
 	mySlider = new dhtmlXSlider("slider");
 	
 	mySlider.attachEvent("onChange", function(value){
