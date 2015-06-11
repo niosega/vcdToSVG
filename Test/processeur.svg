@@ -14,8 +14,8 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="archi.svg">
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="processeur.svg">
   <defs
      id="defs4">
     <marker
@@ -514,15 +514,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="566.74489"
-     inkscape:cy="221.3071"
+     inkscape:cx="569.60203"
+     inkscape:cy="678.44996"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="830"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
      inkscape:window-x="0"
-     inkscape:window-y="204"
+     inkscape:window-y="25"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -1395,7 +1395,7 @@
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
        x="481.67041"
        y="356.3671"
-       id="text3419"
+       id="mdi"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3421"
@@ -1406,12 +1406,13 @@
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
        x="615.68799"
        y="346.26556"
-       id="text3423"
-       sodipodi:linespacing="125%"><tspan
+       id="f2d"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3423"><tspan
          sodipodi:role="line"
-         id="tspan3425"
+         id="f2d"
          x="615.68799"
-         y="346.26556">MDI</tspan></text>
+         y="346.26556">F2D</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"

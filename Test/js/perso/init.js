@@ -1,32 +1,36 @@
 var mySlider;
 
 //~ Ce qu'il se passe à l'ouverture du fichier
-function openFile(event) {
-				
-	var input = event.target;
-	var reader = new FileReader();
+function openVCDFile(event){
+	alert("VCD opened");
+	//~ var input = event.target;
+	//~ var reader = new FileReader();
+	//~ 
+	//~ var file = input.files[0];
+	//~ 
+	//~ var toDoOnLoad = function(){
+		  //~ var text = reader.result;
+		  //~ testSvg(text);
+	//~ };
+	//~ 
+	//~ var toDoOnLoadStart = function(){
+//~ 
+	//~ }
+	//~ 
+	//~ var toDoOnProgress = function(){
+		//~ 
+	//~ }
+	//~ 
+	//~ reader.onload = toDoOnLoad;
+	//~ reader.onloadstart=toDoOnLoadStart;
+	//~ reader.onprogress= toDoOnProgress;
+	//~ 
+	//~ reader.readAsText(file);
 	
-	var file = input.files[0];
-	
-	var toDoOnLoad = function(){
-		  var text = reader.result;
-		  testSvg(text);
-	};
-	
-	var toDoOnLoadStart = function(){
+}
 
-	}
-	
-	var toDoOnProgress = function(){
-		
-	}
-	
-	reader.onload = toDoOnLoad;
-	reader.onloadstart=toDoOnLoadStart;
-	reader.onprogress= toDoOnProgress;
-	
-	reader.readAsText(file);
-	
+function openSVGFile(event){
+	alert("SVG opened");
 }
 
 //~ Ce qu'il se passe à l'ouverture de la page 
