@@ -97,13 +97,20 @@ function parse(vcd,variableInteressante){
 				scope=scope+".";
 			}
 		}
-		else if(mots[0]=="$var" && (variableInteressante.indexOf(mots[4])!=-1 || variableInteressante.length==0)){
+		else if(mots[0]=="$var"){
 			var type = mots[1];
 			var length = mots[2];
 			var id = mots[3];
-			var name = mots[4];
+			if(length>1){
+				var name = mots[4].substring(0,mots[4].indexOf('['));
+			}
+			else{
+				var name = mots[4];
+			}
 			var nouvelleVariable = new Variable(type,length,id,scope,name);
-			listeVariables.set(id,nouvelleVariable);
+			if((variableInteressante.indexOf(name)!=-1 || variableInteressante.length==0)){
+				listeVariables.set(id,nouvelleVariable);
+			}
 		}
 		else{
 			
