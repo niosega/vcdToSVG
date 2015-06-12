@@ -27,14 +27,14 @@ function Variable(type,length,id,scope,name) {
 
 //~ Affiche dans la console 
 function affiche(str){
-	var zone = document.getElementById("comment");
-	zone.value = zone.value+"\n "+str;
+	//~ var zone = document.getElementById("comment");
+	//~ zone.value = zone.value+"\n "+str;
 	console.log(str);
 }
 
 function clear(){
-	var zone = document.getElementById("comment");
-	zone.value = "";
+	//~ var zone = document.getElementById("comment");
+	//~ zone.value = "";
 }
 
 //~ Affiche la map

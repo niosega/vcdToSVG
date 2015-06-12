@@ -90,7 +90,8 @@
          sodipodi:role="line"
          id="tspan2990"
          x="795.99036"
-         y="121.51627">$nico:datain$</tspan></text>
+         y="121.51627"
+         >$nico:datain$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 356.58385,143.22489 C 355.41034,110.34541 356.17628,73.951457 355.5737,43.219787"

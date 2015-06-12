@@ -1,3 +1,7 @@
+var rouge = "#ff0000";
+var vert = "#00ff00";
+var bleu = "#0000ff";
+
 function main(){
 	if(myVCD != null && mySVG != null){
 		traitement();
@@ -33,11 +37,24 @@ function changeTime(){
 			if(valeur.name==nomVHDL){
 				combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 				if(valeur.length>1){
-					combien = ConvertBase.bin2hex(combien);
+					//~ combien = ConvertBase.bin2hex(combien);
+					combien = -1;
 				}
 			}
 		},myListeVariables);
-		myLocalSVG = myLocalSVG.replace("$"+key+":"+value+"$",key+" "+combien);
+		if(combien==0){
+			myLocalSVG = myLocalSVG.replace(">$"+key+":"+value+"$","style=\"fill:"+rouge+"\">"+key);
+		}
+		else if(combien==1){
+			myLocalSVG = myLocalSVG.replace(">$"+key+":"+value+"$","style=\"fill:"+vert+"\">"+key);
+		}
+		else if(combien=="U"){
+			myLocalSVG = myLocalSVG.replace(">$"+key+":"+value+"$","style=\"fill:"+bleu+"\">"+key);
+		}
+		else{
+			myLocalSVG = myLocalSVG.replace(">$"+key+":"+value+"$","style=\"fill:#FFC0CB\">"+key);
+		}
+
 	},myVariableVisualisee);
 	
 	afficheSVG(myLocalSVG);

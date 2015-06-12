@@ -514,7 +514,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="572.45917"
+     inkscape:cx="575.31631"
      inkscape:cy="678.44996"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -1092,7 +1092,7 @@
          sodipodi:role="line"
          id="tspan3309"
          x="146.9772"
-         y="500.31381">$codeOp:codeop$</tspan></text>
+         y="500.31381">codeOp</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
@@ -1191,7 +1191,7 @@
          sodipodi:role="line"
          id="tspan3345"
          x="246.47722"
-         y="559.91284">arg1S</tspan></text>
+         y="559.91284">$arg1S:arg1s$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
@@ -1246,7 +1246,7 @@
          sodipodi:role="line"
          id="tspan3365"
          x="107.45498"
-         y="652.69073">arg1S</tspan></text>
+         y="652.69073">$arg1S:arg1s$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
@@ -1403,14 +1403,14 @@
          y="356.3671">MDI</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
        x="615.68799"
        y="346.26556"
        id="f2d"
        sodipodi:linespacing="125%"
        inkscape:label="#text3423"><tspan
          sodipodi:role="line"
-         style="fill:#00ff00"
+         style="fill:#000000"
          id="tspan235"
          x="615.68799"
          y="346.26556">F2D</tspan></text>
@@ -1720,15 +1720,15 @@
        id="ahouioui"
        transform="matrix(0,-1,1,0,360.46242,645.77579)"
        inkscape:label="#g5763-3-4"
-       style="fill:#ff00ff">
+       style="fill:#000000">
       <path
          inkscape:connector-curvature="0"
          id="path3443-6-9-9-3-1-0"
          d="m 287.89348,325.23672 c 0,-28.39286 0,-85.34021 0,-85.34021"
-         style="fill:none;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
+         style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:url(#EmptyTriangleOutL)"
          sodipodi:nodetypes="cc" />
       <path
-         style="fill:none;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          d="m 284.83808,280.98296 c 7.07106,4.16688 6.06091,3.91435 6.06091,3.91435"
          id="path5522-7-4-2-7-7-4"
          inkscape:connector-curvature="0" />
