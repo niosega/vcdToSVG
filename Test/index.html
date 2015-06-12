@@ -3,11 +3,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
-		<script language="Javascript" src="js/perso/parser.js"></script>
+		<script language="Javascript" src="js/perso/init.js"></script>
+		<script language="Javascript" src="js/perso/analyse.js"></script>
+		<script language="Javascript" src="js/perso/parserVCD.js"></script>
+		<script language="Javascript" src="js/perso/parserSVG.js"></script>
 		<script language="Javascript" src="js/library/svg.js"></script>
 		<script language="Javascript" src="js/library/slider.js"></script>
-		<script language="Javascript" src="js/perso/init.js"></script>
-		<script language="Javascript" src="js/perso/svgGenerator.js"></script>
+		<script language="Javascript" src="js/library/baseConverter.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/library/slider.css"/>
 				
@@ -20,6 +22,12 @@
 				<div id="slider"></div><br><br>
 				VCD : <input type='file' onchange='openVCDFile(event)' accept='.vcd' ><br><br>
 				SVG : <input type='file' onchange='openSVGFile(event)' accept='.svg'><br><br>
+				<div id="zoneBouton">
+					<div id="time"></div>
+				<input id="left" type="button" value="<=" onclick="previousTime();" />
+				<input id="button" type="button" value="Generate !" onclick="onClickButton();" />
+				<input id="right" type="button" value="=>" onclick="nextTime();" />
+				</div><br><br>
 <!--
 				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
 -->
@@ -27,11 +35,7 @@
 					<svg id="secondSVG" width="100%" height="100%">
 					</svg>
 				</div>
-<!--
-				<div id="svgPlace" style="width: 99%; height: 4000; color: black; border: 2px solid ; padding: 5px;">
-					<svg id="svg" width="100%" height="100%"></svg>
-				</div><br>
--->
+				
 				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
 
 			</center>							

@@ -12,10 +12,6 @@ function Variable(type,length,id,scope,name) {
 		return "type : "+type+" length : "+length+" id : "+id+" scope : "+scope +" name : "+name;
 	}
 	
-	this.changeValue = function(value){
-		this.value=value;
-	}
-	
 	this.afficheTemps = function(){
 		this.value.forEach(function(value,key){
 			affiche("Temps "+name+" : "+key+" | "+value);
@@ -37,7 +33,7 @@ function affiche(str){
 }
 
 function clear(){
-		var zone = document.getElementById("comment");
+	var zone = document.getElementById("comment");
 	zone.value = "";
 }
 
@@ -71,7 +67,6 @@ function copyOldValue(map,key,newTime){
 	var ancienneValeur = ancienneVariable.value;
 	nouvelleVariable.value = ancienneValeur;
 	nouvelleVariable.lastValue = valeurCourante;
-	//~ affiche("DEBUG : key : "+key+" time : "+newTime +" valeur : "+valeurCourante);
 	nouvelleVariable.value.set(newTime,valeurCourante);
 	map.set(ancienneVariable.id,nouvelleVariable);
 }
