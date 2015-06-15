@@ -112,7 +112,7 @@ function parse(vcd,variableInteressante){
 				var name = mots[4];
 			}
 			var nouvelleVariable = new Variable(type,length,id,scope,name);
-			if((variableInteressante.indexOf(name)!=-1 || variableInteressante.length==0)){
+			if((variableInteressante.indexOf(scope+name)!=-1 || variableInteressante.length==0)){
 				listeVariables.set(id,nouvelleVariable);
 			}
 		}

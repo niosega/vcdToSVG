@@ -7,7 +7,9 @@ $end
 $timescale
   1 fs
 $end
+$scope module mem $end
 $var wire 1 & ce $end
+$upscope $end
 $var reg 8 " datain[7:0] $end
 $enddefinitions $end
 #0

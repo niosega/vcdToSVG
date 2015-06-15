@@ -1,6 +1,7 @@
 var rouge = "#ff0000";
 var vert = "#00ff00";
 var bleu = "#0000ff";
+var rose = "#ff0088";
 
 
 function main(){
@@ -37,19 +38,14 @@ function changeTime(){
 	var allGNode = svgParser.querySelectorAll("g");
 	
 	myVariableVisualisee.forEach(function(value,key){
-		
-		var myLenght = 0; 
+		var myLength = 0; 
 		var couleur = 0;
 		
 		var nomVHDL = value;
 		var combien = 0;
 		myListeVariables.forEach(function(valeur,cle){
-			if(valeur.name==nomVHDL){
+			if((valeur.scope+valeur.name)==nomVHDL){
 				combien = valeur.afficheTempsA(myTableauTemps[myTime]);
-				if(valeur.length>1){
-					//~ combien = ConvertBase.bin2hex(combien);
-					combien = -1;
-				}
 				myLength=valeur.length;
 			}
 		},myListeVariables);
@@ -70,14 +66,28 @@ function changeTime(){
 								couleur=bleu;
 							}
 							//~ Changement de couleur texte 
-							allGNode[i].childNodes[3].childNodes[0].childNodes[0].data = value;
+							var x = value.split(".");
+							allGNode[i].childNodes[3].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[3].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
 							//~ Changement de couleur trait
 							allGNode[i].childNodes[1].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
-						
 						}
 						else{
 							
+							if(combien.indexOf("U")!=-1){
+								couleur=bleu;
+								combien="";
+							}
+							else{
+								couleur=rose;
+								combien = ConvertBase.bin2hex(combien);
+							}
+							//~ Changement de couleur texte 
+							var x = value.split(".");
+							allGNode[i].childNodes[3].childNodes[0].childNodes[0].data = x[x.length-1]+" "+combien;
+							allGNode[i].childNodes[3].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
+							//~ Changement de couleur trait
+							allGNode[i].childNodes[1].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
 						}
 					}		
 			}
@@ -96,17 +106,16 @@ function afficheSVG(text){
 }
 
 function nextTime(){
-	myTime++;
-	if(myTime>myTableauTemps.length-1){
-		myTime = myTableauTemps.length-1;
+	if(myTime<myTableauTemps.length-1){
+		myTime++;
+		changeTime();
 	}
-	changeTime();
 }
 
 function previousTime(){
-	myTime--;
-	if(myTime<0){
-		myTime = 0;
+
+	if(myTime>0){
+		myTime--;
+		changeTime();
 	}
-	changeTime();
 }
