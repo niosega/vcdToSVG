@@ -25,10 +25,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="378.11446"
+     inkscape:cx="205.88346"
      inkscape:cy="867.5132"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3006"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="719"
@@ -57,41 +57,47 @@
        height="125.25892"
        x="293.95438"
        y="145.24519" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 108.08632,181.61069 c 184.85792,-2.02031 184.85792,-2.02031 184.85792,-2.02031"
-       id="path3778"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:19.68576241px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="112.65887"
-       y="133.95561"
-       id="text3780"
-       sodipodi:linespacing="125%"
-       transform="scale(0.77146608,1.2962333)"><tspan
-         sodipodi:role="line"
-         id="tspan3782"
+    <g
+       id="g3001"
+       transform="translate(3.0304574,3.0304576)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3778"
+         d="m 108.08632,181.61069 c 184.85792,-2.02031 184.85792,-2.02031 184.85792,-2.02031"
+         style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         transform="scale(0.77146608,1.2962333)"
+         sodipodi:linespacing="125%"
+         id="text3780"
+         y="133.95561"
          x="112.65887"
-         y="133.95561">$f2d:ce$</tspan></text>
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 414.16254,193.73252 c 177.78685,1.01015 179.80716,2.0203 179.80716,2.0203"
-       id="path2986"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:16.48703003px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="795.99036"
-       y="121.51627"
-       id="text2988"
-       sodipodi:linespacing="125%"
-       transform="scale(0.67560691,1.4801506)"><tspan
-         sodipodi:role="line"
-         id="tspan2990"
-         x="795.99036"
+         style="font-size:19.68576241px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="133.95561"
+           x="112.65887"
+           id="tspan3782"
+           sodipodi:role="line">$f2d:ce$</tspan></text>
+    </g>
+    <g
+       id="g3006">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2986"
+         d="m 414.16254,193.73252 c 177.78685,1.01015 179.80716,2.0203 179.80716,2.0203"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1" />
+      <text
+         transform="scale(0.67560691,1.4801506)"
+         sodipodi:linespacing="125%"
+         id="text2988"
          y="121.51627"
-         >$nico:datain$</tspan></text>
+         x="795.99036"
+         style="font-size:16.48703003px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="121.51627"
+           x="795.99036"
+           id="tspan2990"
+           sodipodi:role="line">$nico:datain$</tspan></text>
+    </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 356.58385,143.22489 C 355.41034,110.34541 356.17628,73.951457 355.5737,43.219787"

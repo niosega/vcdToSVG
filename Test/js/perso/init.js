@@ -1,5 +1,5 @@
 //~ La variable représentant le slider 
-var mySlider = null;
+//~ var mySlider = null;
 //~ La variable représentant le contenu du fichier VCD
 var myVCD = null;
 //~ La variable représentant le contenu du fichier SVG
@@ -73,26 +73,26 @@ function openSVGFile(event){
 //~ Ce qu'il se passe à l'ouverture de la page 
 function doOnLoad(){
 	clear();
-	mySlider = new dhtmlXSlider("slider");
+	//~ mySlider = new dhtmlXSlider("slider");
 	
-	mySlider.attachEvent("onChange", function(value){
-
-	});
-	
-	mySlider.attachEvent("onSlideEnd", function(value){
-		console.log("Valeur slider : "+value);
-
-	});
+	//~ mySlider.attachEvent("onChange", function(value){
+//~ 
+	//~ });
+	//~ 
+	//~ mySlider.attachEvent("onSlideEnd", function(value){
+		//~ console.log("Valeur slider : "+value);
+//~ 
+	//~ });
 	
 	
 }
 
 //~ Ce qu'il se passe à la fermeture de la page
 function doOnUnload(){
-	if (mySlider != null){
-		mySlider.unload();
-		mySlider = null;
-	}
+	//~ if (mySlider != null){
+		//~ mySlider.unload();
+		//~ mySlider = null;
+	//~ }
 }
 
 //~ Ce qu'il se passe quand on clique sur le bouton 
