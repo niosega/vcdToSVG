@@ -11,13 +11,17 @@ $scope module mem $end
 $var wire 1 & ce $end
 $upscope $end
 $var reg 8 " datain[7:0] $end
+$var wire 1 l ck $end
 $enddefinitions $end
 #0
-1&
+U&
+Ul
 b00000000 "
 #5
-U&
+1&
+1l
 bUUUUUUUU "
 #10
 0&
+0l
 b11111111 "

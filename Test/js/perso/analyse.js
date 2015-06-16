@@ -59,63 +59,78 @@ function changeTime(){
 	var svgParser = new DOMParser();
 	svgParser = svgParser.parseFromString(mySVG, "image/svg+xml");	
 	var allGNode = svgParser.querySelectorAll("g");
-	
-	
+
 	myVariableVisualisee.forEach(function(value,key){
 		var couleur = 0;
-
+		var textIndex=0;
+		var pathIndex=0;
+		var valueIndex=0;
+		var combien=0;
+		var myLength=0;
+		 
 		[combien,myLength] = getValueForTime(value);
-		
+
 		for(var i = 1;i<allGNode.length;i++){
-			var textContent = allGNode[i].childNodes[3].childNodes[0].childNodes[0].data;
+			for(var j in allGNode[i].childNodes){
+				if(allGNode[i].childNodes[j].tagName=="path"){
+					pathIndex = j;
+				}
+				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].textContent=="#value#"){
+					valueIndex = j;
+				}
+				else if(allGNode[i].childNodes[j].tagName=="text"){
+					textIndex = j;
+				}
+			}
+
+			var textContent = allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data;
+
 			if(textContent[0]=="$"){
+
 				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
+				
 					if(splitTextContent[0]==key){
-						if(myLength==1){
-							
-							if(combien == 1 ){
-								couleur=vert;
+
+						if(myLength==1){	
+								if(combien == 1 ){
+									couleur=vert;
+								}
+								else if( combien ==0){
+									couleur=rouge;
+								}
+								else if( combien == 'U'){
+									couleur=bleu;
+								}		
+								//~ Change the color of the wire
+								allGNode[i].childNodes[pathIndex].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+								//~ Change the color of the text
+								var x = value.split(".");
+								allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
+								allGNode[i].childNodes[textIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
 							}
-							else if( combien ==0){
-								couleur=rouge;
-							}
-							else if( combien == 'U'){
-								couleur=bleu;
-							}
-							
-							
-				//~ /!\/!\/!\/!\			SI LE WIRE EST DESSINER AVANT LE TEXTE MARCHE PAS, DEPEND DE LORDRE DE CREATION SUR INKSCAPE   /!\/!\/!\/!\/!\
-							
-							
-							
-							//~ Change the color of the text
-							var x = value.split(".");
-							allGNode[i].childNodes[3].childNodes[0].childNodes[0].data = x[x.length-1];
-							allGNode[i].childNodes[3].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
-							//~ Change the color of the wire
-							allGNode[i].childNodes[1].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
-						}
+						
 						else{
 							
 							if(combien.indexOf("U")!=-1){
 								couleur=bleu;
-								combien="";
+								//~ combien="";
 							}
 							else{
 								couleur=rose;
-								combien = ConvertBase.bin2hex(combien);
+								//~ combien = ConvertBase.bin2hex(combien);
 							}
+							//~ Change the color of the wire
+							allGNode[i].childNodes[pathIndex].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
 							//~ Change the color of the text
 							var x = value.split(".");
-							allGNode[i].childNodes[3].childNodes[0].childNodes[0].data = x[x.length-1]+" "+combien;
-							allGNode[i].childNodes[3].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
-							//~ Change the color of the wire
-							allGNode[i].childNodes[1].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
-						}
+							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
+							allGNode[i].childNodes[textIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
+							//~ Change the value
+							allGNode[i].childNodes[valueIndex].childNodes[0].textContent = combien;
 					}		
+				}
 			}
 		}
-		
 	},myVariableVisualisee);
 	
 	
