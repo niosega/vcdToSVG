@@ -111,14 +111,7 @@ function changeTime(){
 						
 						else{
 							
-							if(combien.indexOf("U")!=-1){
-								couleur=bleu;
-								//~ combien="";
-							}
-							else{
-								couleur=rose;
-								//~ combien = ConvertBase.bin2hex(combien);
-							}
+							couleur = rose;
 							//~ Change the color of the wire
 							allGNode[i].childNodes[pathIndex].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
 							//~ Change the color of the text
