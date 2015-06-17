@@ -1,6 +1,6 @@
 //~ Some common RGB values 
 var rouge = "#ff0000";
-var vert = "#00ff00";
+var vert = "#00dd00";
 var bleu = "#0000ff";
 var rose = "#ff0088";
 
@@ -59,21 +59,24 @@ function changeTime(){
 	var svgParser = new DOMParser();
 	svgParser = svgParser.parseFromString(mySVG, "image/svg+xml");	
 	var allGNode = svgParser.querySelectorAll("g");
-
+	
 	myVariableVisualisee.forEach(function(value,key){
 		var couleur = 0;
 		var textIndex=0;
-		var pathIndex=0;
+
 		var valueIndex=0;
+		var pathIndex= new Array();
 		var combien=0;
 		var myLength=0;
 		 
 		[combien,myLength] = getValueForTime(value);
 
 		for(var i = 1;i<allGNode.length;i++){
+			
+			pathIndex.length=0;
 			for(var j in allGNode[i].childNodes){
 				if(allGNode[i].childNodes[j].tagName=="path"){
-					pathIndex = j;
+					pathIndex.push(j);
 				}
 				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].textContent=="#value#"){
 					valueIndex = j;
@@ -90,7 +93,7 @@ function changeTime(){
 				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
 				
 					if(splitTextContent[0]==key){
-
+												
 						if(myLength==1){	
 								if(combien == 1 ){
 									couleur=vert;
@@ -101,8 +104,10 @@ function changeTime(){
 								else if( combien == 'U'){
 									couleur=bleu;
 								}		
-								//~ Change the color of the wire
-								allGNode[i].childNodes[pathIndex].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+								//~ Change the color of the wires
+								for(var pI in pathIndex){
+									allGNode[i].childNodes[pathIndex[pI]].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+								}
 								//~ Change the color of the text
 								var x = value.split(".");
 								allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
@@ -112,13 +117,16 @@ function changeTime(){
 						else{
 							
 							couleur = rose;
-							//~ Change the color of the wire
-							allGNode[i].childNodes[pathIndex].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+							//~ Change the color of the wires
+							for(var pI in pathIndex){
+								allGNode[i].childNodes[pathIndex[pI]].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+							}							
 							//~ Change the color of the text
 							var x = value.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[textIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
 							//~ Change the value
+							allGNode[i].childNodes[valueIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
 							allGNode[i].childNodes[valueIndex].childNodes[0].textContent = combien;
 					}		
 				}
