@@ -59,27 +59,32 @@ function changeTime(){
 	var svgParser = new DOMParser();
 	svgParser = svgParser.parseFromString(mySVG, "image/svg+xml");	
 	var allGNode = svgParser.querySelectorAll("g");
-	
+
 	myVariableVisualisee.forEach(function(value,key){
 		var couleur = 0;
 		var textIndex=0;
 
-		var valueIndex=0;
+		var valueIndex=-1;
 		var pathIndex= new Array();
 		var combien=0;
 		var myLength=0;
-		 
 		[combien,myLength] = getValueForTime(value);
 
 		for(var i = 1;i<allGNode.length;i++){
-			
+
 			pathIndex.length=0;
+			
 			for(var j in allGNode[i].childNodes){
 				if(allGNode[i].childNodes[j].tagName=="path"){
 					pathIndex.push(j);
 				}
-				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].textContent=="#value#"){
-					valueIndex = j;
+				else if(myLength==1 && allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].length>0 && allGNode[i].childNodes[j].childNodes[0].length>0){
+					affiche("DEBUG : "+allGNode[i].childNodes[j].childNodes[0].childNodes[0].data);
+					//~ if(1==1){
+						//~ if(allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#value#"){
+							//~ valueIndex = j;
+						//~ }
+					//~ }
 				}
 				else if(allGNode[i].childNodes[j].tagName=="text"){
 					textIndex = j;
@@ -92,8 +97,7 @@ function changeTime(){
 
 				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
 				
-					if(splitTextContent[0]==key){
-												
+					if(splitTextContent[0]==key){				
 						if(myLength==1){	
 								if(combien == 1 ){
 									couleur=vert;
@@ -106,27 +110,26 @@ function changeTime(){
 								}		
 								//~ Change the color of the wires
 								for(var pI in pathIndex){
-									allGNode[i].childNodes[pathIndex[pI]].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+									allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
 								}
 								//~ Change the color of the text
 								var x = value.split(".");
 								allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
-								allGNode[i].childNodes[textIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
+								allGNode[i].childNodes[textIndex].style.fill=couleur;
 							}
 						
 						else{
-							
 							couleur = rose;
 							//~ Change the color of the wires
 							for(var pI in pathIndex){
-								allGNode[i].childNodes[pathIndex[pI]].setAttribute("style","fill:none;stroke:"+couleur+";stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1");
+									allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
 							}							
 							//~ Change the color of the text
 							var x = value.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
-							allGNode[i].childNodes[textIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
+							allGNode[i].childNodes[textIndex].style.fill=couleur;
 							//~ Change the value
-							allGNode[i].childNodes[valueIndex].setAttribute("style","fill:"+couleur+";font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill-opacity:1;stroke:none;font-family:Sans");
+							allGNode[i].childNodes[valueIndex].style.fill=couleur;
 							allGNode[i].childNodes[valueIndex].childNodes[0].textContent = combien;
 					}		
 				}
@@ -161,4 +164,22 @@ function previousTime(){
 		myTime--;
 		changeTime();
 	}
+}
+
+function changeColor(oldStyle,fill,couleur){
+	//~ var before = oldStyle;
+	//~ var after = "";
+	//~ fill:"+couleur+";font-size:16px;fon
+	//~ if(fill==1){
+		//~ var index = before.indexOf("fill");
+		//~ if(index == -1){
+			//~ after = before+";fill:"+couleur;
+		//~ }
+		//~ else{
+			//~ var temp = before.substring(index,
+		//~ }
+	//~ }
+	//~ else{
+		//~ 
+	//~ }
 }

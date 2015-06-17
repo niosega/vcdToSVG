@@ -28,7 +28,7 @@ $var wire 1 r destS $end
 $var wire 1 s A  $end
 $var wire 1 t B $end
 $var wire 1 u arg1 $end
-$var wire 1 v arg2 $end
+$var wire 4 v arg2[3:0] $end
 $var wire 1 w memInstr $end
 $var wire 1 x ceFlags $end
 $var wire 1 y Z $end
@@ -60,7 +60,7 @@ $enddefinitions $end
 1s
 1t
 1u
-1v
+b0000 v
 1w
 1x
 1y
@@ -91,7 +91,7 @@ $enddefinitions $end
 0s
 0t
 0u
-0v
+b0010 v
 0w
 0x
 0y
@@ -122,7 +122,7 @@ Ur
 Us
 Ut
 Uu
-Uv
+b0100 v
 Uw
 Ux
 Uy
