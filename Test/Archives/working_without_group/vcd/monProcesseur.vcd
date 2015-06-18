@@ -1,0 +1,132 @@
+$date
+  Mon Jun  8 12:04:14 2015
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var wire 1 a offset $end
+$var wire 1 b instr $end
+$var wire 1 c offset $end
+$var wire 1 d jr $end
+$var wire 1 e PC $end
+$var wire 1 f CST $end
+$var wire 1 g ja $end
+$var wire 1 h cePC $end
+$var wire 1 i MA $end
+$var wire 1 j arg2 $end
+$var wire 1 k MDI $end
+$var wire 1 l ceInstr $end
+$var wire 1 m ceCST $end
+$var wire 1 n codeOp $end
+$var wire 1 o cond $end
+$var wire 1 p arg1S $end
+$var wire 1 q arg2S $end
+$var wire 1 r destS $end
+$var wire 1 s A  $end
+$var wire 1 t B $end
+$var wire 1 u arg1 $end
+$var wire 4 v arg2[3:0] $end
+$var wire 1 w memInstr $end
+$var wire 1 x ceFlags $end
+$var wire 1 y Z $end
+$var wire 1 z C  $end
+$var wire 1 A N $end
+$var wire 1 B ceM $end
+$var wire 1 C MDO $end
+$enddefinitions $end
+
+#0
+1a
+1b
+1c
+1d
+1e
+1f
+1g
+1h
+1i
+1j
+1k
+1l
+1m
+1n
+1o
+1p
+1q
+1r
+1s
+1t
+1u
+b0000 v
+1w
+1x
+1y
+1z
+1A
+1B
+1C
+
+#1
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+0r
+0s
+0t
+0u
+b0010 v
+0w
+0x
+0y
+0z
+0A
+0B
+0C
+
+#2
+Ua
+Ub
+Uc
+Ud
+Ue
+Uf
+Ug
+Uh
+Ui
+Uj
+Uk
+Ul
+Um
+Un
+Uo
+Up
+Uq
+Ur
+Us
+Ut
+Uu
+b0100 v
+Uw
+Ux
+Uy
+Uz
+UA
+UB
+UC

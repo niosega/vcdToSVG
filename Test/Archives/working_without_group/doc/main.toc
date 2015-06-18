@@ -1,0 +1,11 @@
+\contentsline {part}{I\hspace {1em}Prepare animation}{2}
+\contentsline {section}{\numberline {1}In your VHDL files}{3}
+\contentsline {section}{\numberline {2}In your VCD files}{3}
+\contentsline {section}{\numberline {3}In your SVG files}{3}
+\contentsline {subsection}{\numberline {3.1}1 bit variable}{3}
+\contentsline {subsection}{\numberline {3.2}n bits variable}{3}
+\contentsline {subsection}{\numberline {3.3}InkScape}{4}
+\contentsline {section}{\numberline {4}Example}{4}
+\contentsline {part}{II\hspace {1em}Prepare animation}{5}
+\contentsline {section}{\numberline {5}1 bit variables}{6}
+\contentsline {section}{\numberline {6}n bits variables}{6}
