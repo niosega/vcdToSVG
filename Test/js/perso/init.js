@@ -4,6 +4,8 @@
 var myVCD = null;
 //~ La variable représentant le contenu du fichier SVG
 var mySVG = null;
+//~ La variable représentant le contenu du fichier COR
+var myCOR = null;
 //~ La variable représentant le temps actuel
 var myTime = 0; 
 //~ La variable représentant les temps
@@ -12,6 +14,8 @@ var myTableauTemps = new Array();
 var myListeVariables = new Map();
 //~ La variable représentant la liste des variables visualisées et leurs noms VHDL 
 var myVariableVisualisee = new Map();
+//~ La variable représentant la liste des correspondances nomSVG nomVCD
+var mySVGtoVCD = new Map(); 
 
 
 //~ Ce qu'il se passe à l'ouverture du fichier VCD
@@ -53,6 +57,32 @@ function openSVGFile(event){
 	
 	var toDoOnLoad = function(){
 		  mySVG = reader.result;
+	};
+	
+	var toDoOnLoadStart = function(){
+
+	}
+	
+	var toDoOnProgress = function(){
+		
+	}
+	
+	reader.onload = toDoOnLoad;
+	reader.onloadstart=toDoOnLoadStart;
+	reader.onprogress= toDoOnProgress;
+	
+	reader.readAsText(file);
+}
+
+//~ Ce qu'il se passe à l'ouverture du fichier COR 
+function openCORFile(event){
+	var input = event.target;
+	var reader = new FileReader();
+	
+	var file = input.files[0];
+	
+	var toDoOnLoad = function(){
+		  myCOR = reader.result;
 	};
 	
 	var toDoOnLoadStart = function(){

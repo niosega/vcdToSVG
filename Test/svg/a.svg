@@ -25,15 +25,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="213.9647"
+     inkscape:cx="215.98501"
      inkscape:cy="746.29489"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="1026"
-     inkscape:window-x="1366"
-     inkscape:window-y="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -76,10 +76,11 @@
            y="133.95561"
            x="112.65887"
            id="tspan3782"
-           sodipodi:role="line">$f2d:mem.ce$</tspan></text>
+           sodipodi:role="line">!f2d!</tspan></text>
     </g>
     <g
-       id="g3013">
+       id="g3013"
+       f2d="yes">
       <path
          inkscape:connector-curvature="0"
          id="path3011"
@@ -135,7 +136,7 @@
            y="114.00915"
            x="784.02893"
            id="tspan2990"
-           sodipodi:role="line">$nico:datain$</tspan></text>
+           sodipodi:role="line">!nico!</tspan></text>
       <text
          transform="scale(1.0619268,0.9416845)"
          sodipodi:linespacing="125%"
@@ -150,7 +151,8 @@
            sodipodi:role="line">#value#</tspan></text>
     </g>
     <g
-       id="g3010">
+       id="g3010"
+       transform="translate(-1.0101525,7.0710678)">
       <path
          inkscape:connector-curvature="0"
          id="path2996"
@@ -166,7 +168,7 @@
            y="367.47876"
            x="194.95944"
            id="tspan3000"
-           sodipodi:role="line">$a:ck$</tspan></text>
+           sodipodi:role="line">!a!</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path3005"

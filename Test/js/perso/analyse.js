@@ -8,7 +8,7 @@ var valueBitsColor = "#003300"; // vert dégueu
 //~ Called when the button "Generate !" is clicked
 function main(){
 	//~ If there is no files missing .
-	if(myVCD != null && mySVG != null){
+	if(myVCD != null && mySVG != null && myCOR != null){
 		traitement();
 	}
 	//~ If there is. 
@@ -20,18 +20,18 @@ function main(){
 //~ Call the VCD and SVG parser and begin the animation 
 function traitement(){
 	
-	//~ Read the SVG file
-	//~ Find the variables that must be animated ( put into myVariableVisualisee )
-	//~ Add the variables into a list for VCD parsing 
-	var liste = new Array();
-	myVariableVisualisee = analyseSVG(mySVG);
-	myVariableVisualisee.forEach(function(value,key){
-		liste.push(value);
-	},myVariableVisualisee);
+	//~ Find the correspondance between SVG and VCD
+	mySVGtoVCD = analyseCOR(myCOR); // svg:vcd
+	 
+	//~ Create the list of animated variables (VCD names) 
+	var list = new Array();
+	mySVGtoVCD.forEach(function(value,key){
+		list.push(value);
+	},mySVGtoVCD);
 
 
 	//~ Parse the VCD file according to the previous list 
-	[myListeVariables,myTableauTemps] = parse(myVCD,liste);
+	[myListeVariables,myTableauTemps] = parse(myVCD,list);
 	
 	//~ Ask to print the drawing at time 0 
 	changeTime();
@@ -41,8 +41,9 @@ function traitement(){
 //~ Return the value of the variable with VHDL name given in parameters at time myTime 
 function getValueForTime(nomVHDL){
 	var combien = 0;
-	var myLength = 0; 
+	var myLength = -1; 
 	myListeVariables.forEach(function(valeur,cle){
+		affiche("DEBUG : "+nomVHDL+" "+valeur.name+" "+cle);
 		if((valeur.scope+valeur.name)==nomVHDL){
 			combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 			myLength=valeur.length;
@@ -65,18 +66,18 @@ function changeTime(){
 	//~ Select all GNodes 
 	var allGNode = svgParser.querySelectorAll("g");
 
-	myVariableVisualisee.forEach(function(value,key){
+	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
 		
 		//~ Temporary variables 
 		var couleur = 0;
 		var textIndex=0;
-		var valueIndex=-1;
+		var keyIndex=-1;
 		var pathIndex= new Array();
 		var combien=0;
 		var myLength=0;
 		
-		//~ Get the value and the size for time value of the current variable
-		[combien,myLength] = getValueForTime(value);
+		//~ Get the key and the size for time value of the current variable
+		[combien,myLength] = getValueForTime(key);
 
 		//~ For all GNode 
 		for(var i = 1;i<allGNode.length;i++){
@@ -88,9 +89,9 @@ function changeTime(){
 				if(allGNode[i].childNodes[j].tagName=="path"){
 					pathIndex.push(j);
 				}
- 				//~ If it is a textContent for the value of an n-bits varibles 
-				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#value#"){
-					valueIndex=j;
+ 				//~ If it is a textContent for the key of an n-bits varibles 
+				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#key#"){
+					keyIndex=j;
 				}
 				//~ If it is a textContent containing the name of the variable
 				else if(allGNode[i].childNodes[j].tagName=="text"){
@@ -102,13 +103,12 @@ function changeTime(){
 			var textContent = allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data;
 
 			//~ If we have selected an animated variable 
-			if(textContent[0]=="$"){
-
+			if(textContent[0]=="!"){
 				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
-				
-					if(splitTextContent[0]==key){				
+					if(splitTextContent[0]==value){		
+						affiche("length : "+myLength);		
 						if(myLength==1){	
-								//~ Select the right color depending on the value 
+								//~ Select the right color depending on the key 
 								if(combien == 1 ){
 									couleur=oneColor;
 								}
@@ -123,7 +123,7 @@ function changeTime(){
 									allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
 								}
 								//~ Change the color of the text
-								var x = value.split(".");
+								var x = key.split(".");
 								allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 								allGNode[i].childNodes[textIndex].style.fill=couleur;
 							}
@@ -134,17 +134,17 @@ function changeTime(){
 									allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
 							}							
 							//~ Change the color of the text
-							var x = value.split(".");
+							var x = key.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
-							//~ Change the value
-							allGNode[i].childNodes[valueIndex].style.fill=valueBitsColor;
-							allGNode[i].childNodes[valueIndex].childNodes[0].textContent = combien;
+							//~ Change the key
+							//~ allGNode[i].childNodes[keyIndex].style.fill=keyBitsColor;
+							//~ allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;
 					}		
 				}
 			}
 		}
-	},myVariableVisualisee);
+	},mySVGtoVCD);
 	
 	
 	//~ Print to the SVG zone the computed SVG 
