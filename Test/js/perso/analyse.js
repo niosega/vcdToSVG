@@ -1,8 +1,9 @@
 //~ Some common RGB values 
-var rouge = "#ff0000";
-var vert = "#00dd00";
-var bleu = "#0000ff";
-var rose = "#ff0088";
+var zeroColor = "#ff0000"; //rouge
+var oneColor = "#00dd00"; // vert
+var undefinedColor = "#0000ff"; // bleu
+var wireBitsColor = "#ff0088"; // rose
+var valueBitsColor = "#003300";
 
 //~ Called when the button "Generate !" is clicked
 function main(){
@@ -96,13 +97,13 @@ function changeTime(){
 					if(splitTextContent[0]==key){				
 						if(myLength==1){	
 								if(combien == 1 ){
-									couleur=vert;
+									couleur=oneColor;
 								}
 								else if( combien ==0){
-									couleur=rouge;
+									couleur=zeroColor;
 								}
 								else if( combien == 'U'){
-									couleur=bleu;
+									couleur=undefinedColor;
 								}		
 								//~ Change the color of the wires
 								for(var pI in pathIndex){
@@ -115,17 +116,16 @@ function changeTime(){
 							}
 						
 						else{
-							couleur = rose;
 							//~ Change the color of the wires
 							for(var pI in pathIndex){
-									allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
+									allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
 							}							
 							//~ Change the color of the text
 							var x = value.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
-							allGNode[i].childNodes[textIndex].style.fill=couleur;
+							allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
 							//~ Change the value
-							allGNode[i].childNodes[valueIndex].style.fill=couleur;
+							allGNode[i].childNodes[valueIndex].style.fill=valueBitsColor;
 							allGNode[i].childNodes[valueIndex].childNodes[0].textContent = combien;
 					}		
 				}
@@ -143,7 +143,7 @@ function changeTime(){
 //~ Print the text given in parameter into the SVG zone 
 function afficheSVG(text){
 	var zone = document.getElementById("secondSVG");
-	zone.innerHTML = text;
+	zone.innerHTML =text;
 }
 
 //~ Increase the position in the time-array and ask to print the new drawing 
@@ -160,22 +160,4 @@ function previousTime(){
 		myTime--;
 		changeTime();
 	}
-}
-
-function changeColor(oldStyle,fill,couleur){
-	//~ var before = oldStyle;
-	//~ var after = "";
-	//~ fill:"+couleur+";font-size:16px;fon
-	//~ if(fill==1){
-		//~ var index = before.indexOf("fill");
-		//~ if(index == -1){
-			//~ after = before+";fill:"+couleur;
-		//~ }
-		//~ else{
-			//~ var temp = before.substring(index,
-		//~ }
-	//~ }
-	//~ else{
-		//~ 
-	//~ }
 }
