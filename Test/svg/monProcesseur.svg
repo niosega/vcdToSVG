@@ -513,16 +513,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="535.31057"
-     inkscape:cy="415.52309"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="247.33571"
+     inkscape:cy="610.85455"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="719"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-width="1680"
+     inkscape:window-height="1026"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -757,17 +757,6 @@
          id="tspan4122-2"
          x="581.51477"
          y="193.23425">1</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:9.91837597px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
-       x="581.42999"
-       y="245.81577"
-       id="text4124-03"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4126-4"
-         x="581.42999"
-         y="245.81577">0</tspan></text>
     <rect
        style="opacity:0.90999995;color:#000000;fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect3161-2"
@@ -1921,30 +1910,6 @@
          inkscape:connector-curvature="0" />
     </g>
     <g
-       id="g3894">
-      <text
-         sodipodi:linespacing="125%"
-         id="text3435"
-         y="247.12216"
-         x="489.94464"
-         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
-         xml:space="preserve"><tspan
-           y="247.12216"
-           x="489.94464"
-           id="tspan3437"
-           sodipodi:role="line">$arg2:arg2$</tspan></text>
-      <path
-         inkscape:connector-curvature="0"
-         id="path10999-2"
-         d="m 575.28188,242.52255 c -47.22464,0 -47.22464,0 -47.22464,0"
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 550.87915,246.06437 c 2.05357,-7.94643 1.51785,-7.05358 1.51785,-7.05358"
-         id="path5522-7-4-2-9-7"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
        id="g4001">
       <text
          sodipodi:linespacing="125%"
@@ -2121,7 +2086,54 @@
            y="622.18481"
            x="485.04108"
            id="tspan3367"
-           sodipodi:role="line"></tspan></text>
+           sodipodi:role="line">#value#</tspan></text>
+    </g>
+    <g
+       id="g3372">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4124-03"
+         y="245.81577"
+         x="581.42999"
+         style="font-size:9.91837597px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
+         xml:space="preserve"><tspan
+           y="245.81577"
+           x="581.42999"
+           id="tspan4126-4"
+           sodipodi:role="line">0</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3435"
+         y="247.12216"
+         x="489.94464"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Times New Roman;-inkscape-font-specification:'Times New Roman,'"
+         xml:space="preserve"><tspan
+           y="247.12216"
+           x="489.94464"
+           id="tspan3437"
+           sodipodi:role="line">$arg2:arg2$</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path10999-2"
+         d="m 575.28188,242.52255 c -47.22464,0 -47.22464,0 -47.22464,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 550.87915,246.06437 c 2.05357,-7.94643 1.51785,-7.05358 1.51785,-7.05358"
+         id="path5522-7-4-2-9-7"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.74779492,1.337265)"
+         sodipodi:linespacing="125%"
+         id="text3364"
+         y="210.72906"
+         x="668.53705"
+         style="font-size:20.15133858px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="210.72906"
+           x="668.53705"
+           id="tspan3366"
+           sodipodi:role="line">#value#</tspan></text>
     </g>
   </g>
 </svg>

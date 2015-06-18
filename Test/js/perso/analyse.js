@@ -78,13 +78,9 @@ function changeTime(){
 				if(allGNode[i].childNodes[j].tagName=="path"){
 					pathIndex.push(j);
 				}
-				else if(myLength==1 && allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].length>0 && allGNode[i].childNodes[j].childNodes[0].length>0){
-					affiche("DEBUG : "+allGNode[i].childNodes[j].childNodes[0].childNodes[0].data);
-					//~ if(1==1){
-						//~ if(allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#value#"){
-							//~ valueIndex = j;
-						//~ }
-					//~ }
+ 					
+				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#value#"){
+					valueIndex=j;
 				}
 				else if(allGNode[i].childNodes[j].tagName=="text"){
 					textIndex = j;
