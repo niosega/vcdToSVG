@@ -62,7 +62,7 @@ function changeTime(){
 	svgParser = svgParser.parseFromString(mySVG, "image/svg+xml");	
 	
 	//~ Select all GNodes 
-	var allGNode = svgParser.querySelectorAll("g");
+	var allGNode = svgParser.querySelectorAll("g[f2d='yes']");
 
 	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
 		//~ Temporary variables 
@@ -77,8 +77,7 @@ function changeTime(){
 		[combien,myLength] = getValueForTime(key);
 
 		//~ For all GNode 
-		for(var i = 1;i<allGNode.length;i++){
-
+		for(var i=0;i<allGNode.length;i++){
 			pathIndex.length=0;
 			
 			for(var j in allGNode[i].childNodes){
@@ -98,48 +97,43 @@ function changeTime(){
 
 			//~  Get the text content of the node
 			var textContent = allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data;
-			affiche("TEXT : "+textContent);
 
-			//~ If we have selected an animated variable 
-			if(textContent[0]=="!"){
-				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
-					if(splitTextContent[0]==value){		
-						affiche("length : "+key+" "+value+" "+myLength);		
-						if(myLength==1){	
-								//~ Select the right color depending on the key 
-								if(combien == 1 ){
-									couleur=oneColor;
-								}
-								else if( combien ==0){
-									couleur=zeroColor;
-								}
-								else if( combien == 'U'){
-									couleur=undefinedColor;
-								}		
-								//~ Change the color of the wires
-								for(var pI in pathIndex){
-									allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
-								}
-								//~ Change the color of the text
-								var x = key.split(".");
-								allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
-								allGNode[i].childNodes[textIndex].style.fill=couleur;
+			var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
+				if(splitTextContent[0]==value){		
+					if(myLength==1){	
+							//~ Select the right color depending on the key 
+							if(combien == 1 ){
+								couleur=oneColor;
 							}
-						
-						else{
+							else if( combien ==0){
+								couleur=zeroColor;
+							}
+							else if( combien == 'U'){
+								couleur=undefinedColor;
+							}		
 							//~ Change the color of the wires
 							for(var pI in pathIndex){
-									allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
-							}							
+								allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
+							}
 							//~ Change the color of the text
 							var x = key.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
-							allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
-							//~ Change the key
-							allGNode[i].childNodes[keyIndex].style.fill=valueBitsColor;
-							allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;
-					}		
-				}
+							allGNode[i].childNodes[textIndex].style.fill=couleur;
+						}
+					
+					else{
+						//~ Change the color of the wires
+						for(var pI in pathIndex){
+								allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
+						}							
+						//~ Change the color of the text
+						var x = key.split(".");
+						allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
+						allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
+						//~ Change the key
+						allGNode[i].childNodes[keyIndex].style.fill=valueBitsColor;
+						allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;
+				}		
 			}
 		}
 	},mySVGtoVCD);
