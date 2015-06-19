@@ -22,13 +22,12 @@ function traitement(){
 	
 	//~ Find the correspondance between SVG and VCD
 	mySVGtoVCD = analyseCOR(myCOR); // svg:vcd
-	 
+	
 	//~ Create the list of animated variables (VCD names) 
 	var list = new Array();
 	mySVGtoVCD.forEach(function(value,key){
 		list.push(value);
 	},mySVGtoVCD);
-
 
 	//~ Parse the VCD file according to the previous list 
 	[myListeVariables,myTableauTemps] = parse(myVCD,list);
@@ -43,7 +42,6 @@ function getValueForTime(nomVHDL){
 	var combien = 0;
 	var myLength = -1; 
 	myListeVariables.forEach(function(valeur,cle){
-		affiche("DEBUG : "+nomVHDL+" "+valeur.name+" "+cle);
 		if((valeur.scope+valeur.name)==nomVHDL){
 			combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 			myLength=valeur.length;
@@ -67,7 +65,6 @@ function changeTime(){
 	var allGNode = svgParser.querySelectorAll("g");
 
 	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
-		
 		//~ Temporary variables 
 		var couleur = 0;
 		var textIndex=0;
@@ -90,7 +87,7 @@ function changeTime(){
 					pathIndex.push(j);
 				}
  				//~ If it is a textContent for the key of an n-bits varibles 
-				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#key#"){
+				else if(allGNode[i].childNodes[j].tagName=="text" && allGNode[i].childNodes[j].childNodes[0].childNodes[0].data=="#value#"){
 					keyIndex=j;
 				}
 				//~ If it is a textContent containing the name of the variable
@@ -101,12 +98,13 @@ function changeTime(){
 
 			//~  Get the text content of the node
 			var textContent = allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data;
+			affiche("TEXT : "+textContent);
 
 			//~ If we have selected an animated variable 
 			if(textContent[0]=="!"){
 				var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
 					if(splitTextContent[0]==value){		
-						affiche("length : "+myLength);		
+						affiche("length : "+key+" "+value+" "+myLength);		
 						if(myLength==1){	
 								//~ Select the right color depending on the key 
 								if(combien == 1 ){
@@ -138,8 +136,8 @@ function changeTime(){
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
 							//~ Change the key
-							//~ allGNode[i].childNodes[keyIndex].style.fill=keyBitsColor;
-							//~ allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;
+							allGNode[i].childNodes[keyIndex].style.fill=valueBitsColor;
+							allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;
 					}		
 				}
 			}
