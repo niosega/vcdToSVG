@@ -32,10 +32,23 @@ function traitement(){
 	//~ Parse the VCD file according to the previous list 
 	[myListeVariables,myTableauTemps] = parse(myVCD,list);
 	
+	//~ Change the size of listChrono
+	changeSize(list);
+	 
 	//~ Ask to print the drawing at time 0 
 	changeTime();
 	
 }
+
+function changeSize(list){
+	var zone = document.getElementById("listChrono");
+	zone.size=list.length;
+	zone.innerHTML="";
+	for(var i in list){
+		zone.innerHTML+="<option value="+list[i]+">"+list[i]+"</option>";
+	}	
+}
+
 
 //~ Return the value of the variable with VHDL name given in parameters at time myTime 
 function getValueForTime(nomVHDL){
@@ -147,7 +160,7 @@ function changeTime(){
 
 //~ Print the text given in parameter into the SVG zone 
 function afficheSVG(text){
-	var zone = document.getElementById("secondSVG");
+	var zone = document.getElementById("drawingZone");
 	zone.innerHTML =text;
 }
 
