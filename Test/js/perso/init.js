@@ -16,6 +16,8 @@ var myListeVariables = new Map();
 var myVariableVisualisee = new Map();
 //~ La variable représentant la liste des correspondances nomSVG nomVCD
 var mySVGtoVCD = new Map(); 
+//~ La variable représentant la liste des variables visualisées dans les chronos
+var myChronoVariables = new Array(); 
 
 
 //~ Ce qu'il se passe à l'ouverture du fichier VCD
@@ -128,4 +130,5 @@ function doOnUnload(){
 //~ Ce qu'il se passe quand on clique sur le bouton 
 function onClickButton(){
 	main();
+	createChrono();
 }

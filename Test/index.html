@@ -44,16 +44,6 @@
 -->
 			
 			<hr>
-			
-<!--
-			Where we put the svg simulatio
--->
-			<div id="drawing" >
-				<svg id="drawingZone" width="100%" height="1053">
-				</svg>
-			</div>
-			
-			<hr>
 
 <!--
 			Where we put the chronograms 
@@ -61,25 +51,27 @@
 			<table>
 				<tr>
 					<td align="left" valign="top" width="20%">
-						<select id="listChrono" onchange="ahoui(this.value)" MULTIPLE>
-<!--
-							<option value="a">a</option>
-							<option value="b">tryhrhryhrtyhryryhrh</option>
-							<option value="c">c</option>
-							<option value="c">c</option>
-							<option value="c">c</option>
-							<option value="c">c</option>
-							<option value="c">c</option>
--->
+						<select id="listChrono" onclick="onClickListChrono(this.value)" size="1" MULTIPLE>
 						</select>
 					</td>
 					<td valign="top" width="80%">
 						<svg id="chronoZone" width="100%" height="1053">
-							<rect x="0" y="0" width="1000" height="1053"/>
+							<rect x="0" y="0" width="10" height="10"/>
 						</svg>
 					</td>
 				</tr>
 			</table>
+			
+			<hr>
+
+<!--
+			Where we put the svg simulation
+-->
+			<div id="drawing" >
+				<svg id="drawingZone" width="100%" height="1053">
+					<rect x="0" y="0" width="10" height="10"/>
+				</svg>
+			</div>
 				
 <!--
 				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
