@@ -9,7 +9,6 @@ $timescale
 $end
 $var wire 1 a offset $end
 $var wire 1 b instr $end
-$var wire 1 c offset $end
 $var wire 1 d jr $end
 $var wire 1 e PC $end
 $var wire 1 f CST $end

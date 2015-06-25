@@ -45,7 +45,12 @@ function changeSize(list){
 	zone.size=list.length;
 	zone.innerHTML="";
 	for(var i in list){
-		zone.innerHTML+="<option value="+list[i]+">"+list[i]+"</option>";
+		if(myChronoVariables.indexOf(list[i])==-1){
+			zone.innerHTML+="<option value="+list[i]+">"+list[i]+"</option>";
+		}
+		else{
+			zone.innerHTML+="<option value="+list[i]+">*"+list[i]+"</option>";
+		}
 	}	
 }
 
