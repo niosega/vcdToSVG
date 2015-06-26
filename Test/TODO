@@ -1,11 +1,5 @@
 Faire une doc pour expliquer comment on fait un dessin compatible sous inkscape
 
-barre verticale
+regler largeur du chrono auto
 
-valeur sur le chrono
-
-fond noir
-
-conversion binaire => hexa
-
-regler hauteur de la zone chrono automatique
+textLength pour le texte

@@ -8,6 +8,7 @@ var valueWidth ;
 var varHeigth = 40;
 
 var background = "85,85,85";
+var valueColor = "#cc6600";
 
 var nBitsComplete = new Array();
 
@@ -36,9 +37,16 @@ function createChrono(){
 	var innerSVG = "";
 	textSize = 15;
 
-	selectWidth = 100;;
+	selectWidth = 100;
+	//~ selectWidth = document.getElementById("listChrono").getAttribute("width");
+
+	
+	affiche("SW : "+selectWidth);
 	totalWidth = document.body.clientWidth - selectWidth;
 	document.getElementById("chronoZone").setAttribute("width",totalWidth);
+		
+	document.getElementById("gauche").style.width= 73;
+	document.getElementById("droite").style.width= totalWidth;
 	
 	varWidth = 100;
 	valueWidth = totalWidth-varWidth;
@@ -51,14 +59,14 @@ function createChrono(){
 	
 	//~ Print the time line 
 	innerSVG += createRect(x,y,varWidth,varHeigth);
-	innerSVG += createText(x+5,y+textSize+10,"TIME",textSize);
+	innerSVG += createClickableText(x+5,y+textSize+10,"TIME",textSize,"changeToTimeT('"+1+"');");
 
 	var individualWidth = valueWidth/myTableauTemps.length;
+	innerSVG += createRect(varWidth,0,valueWidth,varHeigth);
 	for(var i in myTableauTemps){
-		innerSVG += createText(x+varWidth+5,y+textSize+10,myTableauTemps[i],textSize);
+		innerSVG += createClickableText(x+varWidth+5,y+textSize+10,myTableauTemps[i],textSize,"changeToTimeT('"+i+"');");
 		x += individualWidth;
 	}
-	innerSVG += createRect(varWidth,0,valueWidth,varHeigth);
 	y += varHeigth;
 	
 	//~ Print the name of the variables
@@ -72,10 +80,11 @@ function createChrono(){
 			}
 		},myListeVariables);
 		
+		innerSVG += createDash(varWidth,12+y+varHeigth/2,varWidth+totalWidth,12+y+varHeigth/2,undefinedColor);
+		
 		if(myLength==1){
 			innerSVG += createRect(x,y,varWidth,varHeigth);
 			innerSVG += createText(x+5,y+textSize+10,myChronoVariables[i],textSize);
-			//~ innerSVG += createRect(varWidth,y,valueWidth,varHeigth,background,0.5);
 			x += varWidth;
 			for(var myTime in myTableauTemps){
 				myListeVariables.forEach(function(valeur,cle){
@@ -83,15 +92,16 @@ function createChrono(){
 						combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 					}
 				},myListeVariables);
-				//~ innerSVG += createText(x+5,y+textSize+10,combien,textSize);
 				if(combien == 1){
 					innerSVG += createLine(x+5,-12+y+varHeigth/2,x+individualWidth,-12+y+varHeigth/2,oneColor);
 				}
 				else if(combien == 0 ){
-					innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,zeroColor);
+					innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,oneColor);
 				}
 				else{
-					innerSVG += createLine(x+5,y+varHeigth/2,x+individualWidth,y+varHeigth/2,undefinedColor);
+					innerSVG += createLine(x+5,-12+y+varHeigth/2,x+individualWidth,-12+y+varHeigth/2,zeroColor);
+					innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,zeroColor);
+					innerSVG += createText(x+5,y+textSize+10,"U",textSize,valueColor);
 				}
 				x += individualWidth;
 			}
@@ -108,7 +118,6 @@ function createChrono(){
 			x = 0;
 			innerSVG += createRect(x,y,varWidth,varHeigth);
 			innerSVG += createClickableText(x+5,y+textSize+10,myChronoVariables[i]+direction,textSize,"coucou('"+myChronoVariables[i]+"');");
-			//~ innerSVG += createRect(varWidth,y,valueWidth,varHeigth,background,0.5);
 			
 			x += varWidth;
 			for(var myTime in myTableauTemps){
@@ -117,17 +126,17 @@ function createChrono(){
 						combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 					}
 				},myListeVariables);
-				innerSVG += createText(x+5,y+varHeigth/2,bin2hex(combien),textSize);
+				innerSVG += createText(x+5,y+varHeigth/2,bin2hex(combien),textSize,valueColor);
 				x += individualWidth;
 			}
 			y += varHeigth;
 	
-			if(isExtended == true){			
+			if(isExtended == true){	
 				for(var k = 0;k<myLength;k++){
+					innerSVG += createDash(varWidth,12+y+varHeigth/2,varWidth+totalWidth,12+y+varHeigth/2,undefinedColor);		
 					x = 0;
 					innerSVG += createRect(x,y,varWidth,varHeigth);
 					innerSVG += createText(x+5,y+textSize+10,"☭ "+myChronoVariables[i]+"["+k+"]",textSize);
-					//~ innerSVG += createRect(varWidth,y,valueWidth,varHeigth,background,0.5);
 					
 					x += varWidth;
 					for(var myTime in myTableauTemps){
@@ -141,10 +150,12 @@ function createChrono(){
 							innerSVG += createLine(x+5,-12+y+varHeigth/2,x+individualWidth,-12+y+varHeigth/2,oneColor);
 						}
 						else if(combien == 0 ){
-							innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,zeroColor);
+							innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,oneColor);
 						}
 						else{
-							innerSVG += createLine(x+5,y+varHeigth/2,x+individualWidth,y+varHeigth/2,undefinedColor);
+							innerSVG += createLine(x+5,-12+y+varHeigth/2,x+individualWidth,-12+y+varHeigth/2,zeroColor);
+							innerSVG += createLine(x+5,12+y+varHeigth/2,x+individualWidth,12+y+varHeigth/2,zeroColor);
+							innerSVG += createText(x+5,y+textSize+10,"U",textSize,valueColor);
 						}
 						x += individualWidth;
 					}
@@ -155,16 +166,17 @@ function createChrono(){
 
 	}
 	
-	//~ Print the value changes
+
 	innerSVG += createRect(varWidth,varHeigth,valueWidth,y-varHeigth,background,0.5);
 	x=0;
 	for(var i in myTableauTemps){
-		innerSVG += createLine(x+varWidth+2.5,varHeigth,x+varWidth+2.5,y,undefinedColor);
+		innerSVG += createDash(x+varWidth+2.5,varHeigth,x+varWidth+2.5,y,undefinedColor);
 		x += individualWidth;
 	}
 	
-	document.getElementById("tdChronoZone").setAttribute("heigth",y);
-	affiche(document.getElementById("tdChronoZone").getAttribute("heigth"));
+	//~ document.getElementById("chronoZone").setAttribute("heigth",y);
+	document.getElementById("chronoZone").style.height=y;
+	document.getElementById("all").style.height=y;
 
 	printChrono(innerSVG);
 }
@@ -179,6 +191,11 @@ function create1BVariable(name,myTime,textSize,x,y){
 	return innerSVG;
 }
 
+function createDash(x,y,dx,dy,color){
+	var toRet = " <line x1=\""+x+"\" y1=\""+y+"\" x2=\""+dx+"\" y2=\""+dy+"\" style=\"stroke:"+color+";stroke-width:1;stroke-dasharray: 2, 2\" />";
+	return toRet;
+}
+
 function createLine(x,y,dx,dy,color){
 	var toRet = " <line x1=\""+x+"\" y1=\""+y+"\" x2=\""+dx+"\" y2=\""+dy+"\" style=\"stroke:"+color+";stroke-width:2\" />";
 	return toRet;
@@ -189,8 +206,8 @@ function createClickableText(x,y,text,size,click){
 	return toRet;
 }
 
-function createText(x,y,text,size){
-	var toRet = "<text x=\""+x+"\" y=\""+y+"\" font-size=\""+size+"\" >"+text+"</text>";
+function createText(x,y,text,size,color="#000000"){
+	var toRet = "<text x=\""+x+"\" y=\""+y+"\" font-size=\""+size+"\" style=\"fill:"+color +"\">"+text+"</text>";
 	return toRet;
 }
 
@@ -246,5 +263,7 @@ function bin2hex(val){
 	for(var i =toRet.length-1;i>=0;i--){
 		toRet2 += toRet[i];
 	}
-	return toRet2;
+	return toRet2.toUpperCase();
 }
+
+

@@ -184,3 +184,10 @@ function previousTime(){
 		changeTime();
 	}
 }
+
+function changeToTimeT(val){
+	if(val>=0 && val<=myTableauTemps.length-1){
+		myTime = val;
+		changeTime();
+	}
+}

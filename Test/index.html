@@ -18,6 +18,16 @@
 		<link rel="stylesheet" type="text/css" href="css/library/slider.css"/>
 		<style>
 		#drawingZone {margin-left:auto; margin-right:auto; display:block;}
+		div#gauche {
+			float: left;
+			width: 10%;
+			heigth: 100;
+		}
+		div#droite {
+			float: right;
+			width: 90%;
+			heigth: 100;
+		}
 		</style>	
 	</head>
 
@@ -43,11 +53,13 @@
 				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
 -->
 			
-			<hr>
 
 <!--
 			Where we put the chronograms 
 -->
+			Chronograms
+			<hr>
+<!--
 			<table id="tableChrono">
 				<tr>
 					<td id="tdListChrono" align="left" valign="top" width="100">
@@ -61,12 +73,25 @@
 					</td>
 				</tr>
 			</table>
-			
-			<hr>
+-->
+			<div id="all" height="100">
+				<div id="gauche" >
+					<select id="listChrono" onclick="onClickListChrono(this.value)" size="1" MULTIPLE></select>
+				</div>
+				<div id="droite" >
+					<svg id="chronoZone" width="100%" height="10" >
+						<rect x="0" y="0" width="10" height="10"/>
+					</svg>
+				</div>
+			</div>
+
 
 <!--
 			Where we put the svg simulation
 -->
+			<br><br>
+			Simulation
+			<hr>
 			<div id="drawing" >
 				<svg id="drawingZone" width="100%" height="1053">
 					<rect x="0" y="0" width="10" height="10"/>
