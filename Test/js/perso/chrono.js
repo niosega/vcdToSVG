@@ -206,6 +206,11 @@ function createClickableText(x,y,text,size,click){
 	return toRet;
 }
 
+function createRegulatedText(x,y,text,size,maxSize,color="#000000"){
+	var toRet = "<text x=\""+x+"\" y=\""+y+"\" font-size=\""+size+"\" style=\"fill:"+color +"\" textLength=\""+ maxSize+ "\"  >"+text+"</text>";
+	return toRet;
+}
+
 function createText(x,y,text,size,color="#000000"){
 	var toRet = "<text x=\""+x+"\" y=\""+y+"\" font-size=\""+size+"\" style=\"fill:"+color +"\">"+text+"</text>";
 	return toRet;
@@ -266,4 +271,9 @@ function bin2hex(val){
 	return toRet2.toUpperCase();
 }
 
+function resize(){
+	if(stateOfFiles == true){
+		createChrono();
+	}
+}
 

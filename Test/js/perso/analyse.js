@@ -5,10 +5,13 @@ var undefinedColor = "#0000ff"; // bleu
 var wireBitsColor = "#ff0088"; // rose
 var valueBitsColor = "#003300"; // vert dégueu
 
+var stateOfFiles = false;
+
 //~ Called when the button "Generate !" is clicked
 function main(){
 	//~ If there is no files missing .
-	if(myVCD != null && mySVG != null && myCOR != null){
+	stateOfFiles = myVCD != null && mySVG != null && myCOR != null ;
+	if(stateOfFiles ==  true){
 		traitement();
 	}
 	//~ If there is. 

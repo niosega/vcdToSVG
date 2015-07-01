@@ -1,5 +1,7 @@
 Faire une doc pour expliquer comment on fait un dessin compatible sous inkscape
 
-regler largeur du chrono auto
+dans le parseur vcd, gerer le dumpvar
 
-textLength pour le texte
+faire le zoom sur chrono
+
+adaptation dynamique du dessin
