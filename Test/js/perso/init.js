@@ -135,7 +135,5 @@ function onClickButton(){
 }
 
 function MouseWheelHandler(e){
-	var e = window.event || e; // old IE support
-	var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-	affiche("text : "+delta);
+	zoom(e);
 }

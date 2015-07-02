@@ -277,3 +277,26 @@ function resize(){
 	}
 }
 
+function zoom(e){
+	//~ var e = window.event || e; // old IE support
+	//~ var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    //~ var posX = e.clientX;
+    //~ var posY = e.clientY;
+    //~ affiche(delta+" "+posX+" "+posY);
+    //~ 
+    //~ var svgEl = document.getElementById("chronoZone");
+  //~ 
+	//~ if(delta>0){
+		//~ svgEl.setAttribute("transform","translate("+posX+") scale(1.25)");
+    //~ } else {
+		//~ svgEl.setAttribute("transform","translate("+posX+") scale(1.00)");	
+	//~ }
+	//~ affiche(svgEl.getAttribute("transform"));
+}
+
+function setCTM(element, matrix) {
+  var m = matrix;
+  var s = "matrix(" + m.a + "," + m.b + "," + m.c + "," + m.d + "," + m.e + "," + m.f + ")";
+
+  element.setAttributeNS(null, "transform", s);
+}
