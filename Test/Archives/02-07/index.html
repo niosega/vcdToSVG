@@ -1,0 +1,111 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<script language="Javascript" src="js/perso/init.js"></script>
+		<script language="Javascript" src="js/perso/analyse.js"></script>
+		<script language="Javascript" src="js/perso/parserVCD.js"></script>
+		<script language="Javascript" src="js/perso/parserSVG.js"></script>
+		<script language="Javascript" src="js/perso/parserCOR.js"></script>
+		<script language="Javascript" src="js/perso/chrono.js"></script>
+		<script language="Javascript" src="js/library/svg.js"></script>
+<!--
+		<script language="Javascript" src="js/library/slider.js"></script>
+-->
+		<script language="Javascript" src="js/library/baseConverter.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/library/slider.css"/>
+		<style>
+		#drawingZone {margin-left:auto; margin-right:auto; display:block;}
+		div#gauche {
+			float: left;
+			width: 10%;
+			heigth: 100;
+		}
+		div#droite {
+			float: right;
+			width: 90%;
+			heigth: 100;
+		}
+		</style>	
+	</head>
+
+	<body onload="doOnLoad();" onunload="doOnUnload();" onresize="resize();">
+			
+			<center>
+				
+<!--
+				<div id="slider"></div><br><br>
+-->
+				VCD : <input type='file' onchange='openVCDFile(event)' accept='.vcd' >
+				SVG : <input type='file' onchange='openSVGFile(event)' accept='.svg'>
+				COR : <input type='file' onchange='openCORFile(event)' accept='.cor'><br><br>
+				<div id="zoneBouton">
+					<div id="time"></div>
+					<input id="left" type="button" value="<=" onclick="previousTime();" />
+					<input id="button" type="button" value="Generate !" onclick="onClickButton();" />
+					<input id="right" type="button" value="=>" onclick="nextTime();" />
+				</div><br><br>
+			</center>
+	
+<!--
+				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
+-->
+			
+
+<!--
+			Where we put the chronograms 
+-->
+			Chronograms
+			<hr>
+<!--
+			<table id="tableChrono">
+				<tr>
+					<td id="tdListChrono" align="left" valign="top" width="100">
+						<select id="listChrono" onclick="onClickListChrono(this.value)" size="1" MULTIPLE>
+						</select>
+					</td>
+					<td id="tdChronoZone" valign="top" width="100%">
+						<svg id="chronoZone" width="100%" height="1053">
+							<rect x="0" y="0" width="10" height="10"/>
+						</svg>
+					</td>
+				</tr>
+			</table>
+-->
+			<div id="all" height="100">
+				<div id="gauche" >
+					<select id="listChrono" onclick="onClickListChrono(this.value)" size="1" MULTIPLE></select>
+				</div>
+				<div id="droite" >
+					<svg id="chronoZone" width="100%" height="10" >
+						<rect x="0" y="0" width="10" height="10"/>
+					</svg>
+				</div>
+			</div>
+
+
+<!--
+			Where we put the svg simulation
+-->
+			<br><br>
+			Simulation
+			<hr>
+			<div id="drawing" >
+				<svg id="drawingZone" width="100%" height="1053">
+					<rect x="0" y="0" width="10" height="10"/>
+				</svg>
+			</div>
+				
+<!--
+				<TEXTAREA id="comment" COLS=180 ROWS=50></TEXTAREA><br>
+-->
+
+
+	</body>
+
+</html>
+
+
+

@@ -1,0 +1,27 @@
+$date
+  Mon Jun  8 12:04:14 2015
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module mem $end
+$var wire 1 & ce $end
+$upscope $end
+$var reg 8 " datain[7:0] $end
+$var wire 1 l ck $end
+$enddefinitions $end
+#0
+U&
+Ul
+b000U0000 "
+#5
+1&
+1l
+bUUUUUUUU "
+#10
+0&
+0l
+b11111111 "

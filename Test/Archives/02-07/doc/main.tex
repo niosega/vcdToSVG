@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\author{Nicolas BONFANTE}
+\title{How to use vcdParser}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\part{Prepare animation}
+\newpage
+\section{In your VHDL files}
+
+The only think you need to do for this kind of files is to note somewhere (in your head or on a paper) the name and the scope of the variables you want to animate. I found it harder to do this with the VHDL files, so I strongly recommend you to do this with VCD files. (VHDL is too much High-Level).
+
+\section{In your VCD files}
+
+The only think you need to do for this kind of files is to note somewhere (in your head or on a paper) the name and the scope of the variables you want to animate. Most of cases, it corresponds to the VHDL name in lower case. 
+
+\section{In your SVG files}
+
+vcdParser will only take into account the part of the file which is between \texttt{<g></g>} tags. The inner part (id est the part between opening and closing tags) follows a very strict architecture describe in the following.
+
+\subsection{1 bit variable}
+The inner part MUST contain a \texttt{path} and a \texttt{text}. 
+\begin{itemize}
+\item The \texttt{path} contains all the attributs you want. But in fact it is useless to fill them because  I will overwrite them.
+\item The \texttt{text} contains only a \texttt{tspan}. Same remarks concerning to the attribut. The data in the \texttt{tspan} follows a specific format describes just below.
+\end{itemize}
+
+The format for the \texttt{tspan} data is the following :
+\begin{center}
+\texttt{\$<drawing\_name>:<vcd\_name>\$}
+\end{center}
+\emph{drawing\_name} is the name that will be displayed on the drawing and \emph{vcd\_name} is the name of the variable in the VCD file. Most of the cases, it corresponds to the VHDL name in lower case.
+
+\subsection{n bits variable}
+The inner \texttt{part} MUST contain a \texttt{path} and 2 \texttt{text}. 
+\begin{itemize}
+\item The \texttt{path} contains all the attributs you want. But in fact it is useless to fill them because  I will overwrite them.
+\item The first \texttt{text} contains only a \texttt{tspan}. Same remarks concerning to the attribut. The data in the \texttt{tspan} follows a specific format describes just below.
+\item The second \texttt{text} has the same structure as the first one. But the data is just "\#value\#". 
+\end{itemize}
+
+The format for the \texttt{tspan} data is the following :
+\begin{center}
+\texttt{\$<drawing\_name>:<vcd\_name>\$}
+\end{center}
+\emph{drawing\_name} is the name that will be displayed on the drawing and \emph{vcd\_name} is the scope plus the name of the variable in the VCD file. Most of the cases, it corresponds to the VHDL name in lower case. 
+For example, if you want to animate the variable called "ce" in the scope "proc.mem", the \emph{vcd\_name} will be "proc.mem.ce". 
+
+\subsection{InkScape}
+If you are using InkScape to draw your schemes, just draw the line, add one or two text area depending on the size of the variables. Then select with your mouse the two or three element and group them ( using CTRL-G or the menu ). The structure will be correct.
+
+\section{Example}
+You can find an example of such files on github. 
+
+\newpage
+\part{Prepare animation}
+\newpage
+
+\section{1 bit variables}
+There is true possible values for a 1-bit variable : 0,1 or U. On the drawing, 0 is represented by the color red, 1 by green and U by green.
+\section{n bits variables}
+
+\end{document}
