@@ -40,8 +40,6 @@ function createChrono(){
 	selectWidth = 100;
 	//~ selectWidth = document.getElementById("listChrono").getAttribute("width");
 
-	
-	affiche("SW : "+selectWidth);
 	totalWidth = document.body.clientWidth - selectWidth;
 	document.getElementById("chronoZone").setAttribute("width",totalWidth);
 		

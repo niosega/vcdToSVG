@@ -7,18 +7,6 @@ var valueBitsColor = "#003300"; // vert dégueu
 
 var stateOfFiles = false;
 
-//~ Called when the button "Generate !" is clicked
-function main(){
-	//~ If there is no files missing .
-	stateOfFiles = myVCD != null && mySVG != null && myCOR != null ;
-	if(stateOfFiles ==  true){
-		traitement();
-	}
-	//~ If there is. 
-	else{
-		alert("Please add files ! ");
-	}
-}
 
 //~ Call the VCD and SVG parser and begin the animation 
 function traitement(){
@@ -45,11 +33,11 @@ function traitement(){
 
 function changeSize(list){
 	//~ Envoie la nouvelle taille de la liste 
-	var toSend ="ChangeListSize:"+list.length; // TODO
+	var toSend ="ChangeListSize:"+list.length; 
 	f1.postMessage(toSend,"*");
 	
 	//~ Envoie le nouveau contenu de la liste 
-	toSend="ChangeListContent:"; // TODO
+	toSend="ChangeListContent:"; 
 	for(var i in list){
 		if(myChronoVariables.indexOf(list[i])==-1){
 			toSend+="<option value="+list[i]+">"+list[i]+"</option>";
@@ -88,6 +76,8 @@ function changeTime(){
 	
 	//~ Select all GNodes 
 	var allGNode = svgParser.querySelectorAll("g[f2d='yes']");
+	//~ var allGNode = svgParser.querySelectorAll("g[/desc[contains(text(),\"f2d\")]");
+	console.log(allGNode);
 
 	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
 		//~ Temporary variables 
@@ -172,7 +162,7 @@ function changeTime(){
 
 //~ Print the text given in parameter into the SVG zone 
 function afficheSVG(text){
-	var toSend = "ChangeSVGContent:"+text; // TODO
+	var toSend = "ChangeSVGContent:"+text; 
 	f2.postMessage(toSend,"*");
 }
 

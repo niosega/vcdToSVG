@@ -23,19 +23,6 @@ function init(){
 	
 	window.addEventListener("message", receiveMessage, false);
 	
-	var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=500,heigth=50";
-	f1 = window.open("f1.html", "f1", strWindowFeatures);
-	f2 = window.open("f2.html", "f2", strWindowFeatures);
-	
-	//~ Weird but otherwise we cannot use f2 
-	f3 = window.open("http://www.google.fr", "f3", strWindowFeatures);
-	f3.close();
-	
-	//~ Speak to the slaves so that they can know their master 
-	f1.postMessage("MasterSpeaking","*");
-	f2.postMessage("MasterSpeaking","*");
-	
-	
 }
 
 function receiveMessage(event){
@@ -125,6 +112,28 @@ function openCORFile(event){
 
 //~ Ce qu'il se passe quand on clique sur le bouton 
 function onClickButton(){
-	main();
-	createChrono();
+	
+	stateOfFiles = myVCD != null && mySVG != null && myCOR != null ;
+	//~ If there is no file missing 
+	if(stateOfFiles ==  true){
+		//~ Opening slaves windows 
+		var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,width=500,heigth=50";
+		f1 = window.open("f1.html", "f1", strWindowFeatures);
+		f2 = window.open("f2.html", "f2", strWindowFeatures);
+		
+		//~ Weird but otherwise we cannot use f2 
+		f3 = window.open("http://www.google.fr", "f3", strWindowFeatures);
+		f3.close();
+		
+		//~ Speak to the slaves so that they can know their master 
+		f1.postMessage("MasterSpeaking","*");
+		f2.postMessage("MasterSpeaking","*");
+		
+		traitement();
+		createChrono();
+	}
+	//~ If there is. 
+	else{
+		alert("Please add files ! ");
+	}
 }
