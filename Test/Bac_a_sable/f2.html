@@ -2,12 +2,21 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<script language="Javascript" src="f2.js"></script>
+	<script language="Javascript" src="js/perso/f2.js"></script>
+	<style>
+		#drawingZone {margin-left:auto; margin-right:auto; display:block;}
+	</style>
 </head>
 
 <body onload="init();">
-	Coucou F2
-	<input id="left" type="button" value="<=" onclick="shareFonction();" />
+	
+	Simulation
+	<hr>
+	<div id="drawing" >
+		<svg id="drawingZone" width="100%" height="1053">
+			<rect x="0" y="0" width="10" height="10"/>
+		</svg>
+	</div>
 
 </body>
 
