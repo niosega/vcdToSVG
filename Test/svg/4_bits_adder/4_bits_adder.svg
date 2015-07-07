@@ -71,6 +71,7 @@
            y="204.17578" />
       </g>
       <g
+      f2d="yes"
          id="g3399">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -89,9 +90,10 @@
              id="tspan3115-9"
              x="529.19171"
              y="503.15891"
-             style="font-size:12px;fill:#280b0b">C1</tspan></text>
+             style="font-size:12px;fill:#280b0b">!C1!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3387">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -110,9 +112,10 @@
              id="tspan3115-1-2-2"
              x="424.87717"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">X1</tspan></text>
+             style="font-size:12px;fill:#280b0b">!X1!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3381">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -131,9 +134,10 @@
              id="tspan3115-1-6-3"
              x="482.02005"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">Y1</tspan></text>
+             style="font-size:12px;fill:#280b0b">!Y1!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3393">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -152,7 +156,7 @@
              id="tspan3115-1-8-6"
              x="450.59146"
              y="608.51605"
-             style="font-size:12px;fill:#280b0b">S1</tspan></text>
+             style="font-size:12px;fill:#280b0b">!S1!</tspan></text>
       </g>
     </g>
     <g
@@ -192,6 +196,7 @@
              style="font-size:12px;fill:#280b0b">!C0!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3387-1">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -210,9 +215,10 @@
              id="tspan3115-1-2-2-1"
              x="424.87717"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">X0</tspan></text>
+             style="font-size:12px;fill:#280b0b">!X0!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3381-7">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -231,9 +237,10 @@
              id="tspan3115-1-6-3-2"
              x="482.02005"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">Y0</tspan></text>
+             style="font-size:12px;fill:#280b0b">!Y0!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3393-7">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -252,7 +259,7 @@
              id="tspan3115-1-8-6-9"
              x="450.59146"
              y="608.51605"
-             style="font-size:12px;fill:#280b0b">S0</tspan></text>
+             style="font-size:12px;fill:#280b0b">!S0!</tspan></text>
       </g>
     </g>
     <g
@@ -270,6 +277,7 @@
            y="204.17578" />
       </g>
       <g
+      f2d="yes"
          id="g3399-6">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -288,9 +296,10 @@
              id="tspan3115-9-5"
              x="529.19171"
              y="503.15891"
-             style="font-size:12px;fill:#280b0b">C2</tspan></text>
+             style="font-size:12px;fill:#280b0b">!C2!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3387-3">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -309,9 +318,10 @@
              id="tspan3115-1-2-2-4"
              x="424.87717"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">X2</tspan></text>
+             style="font-size:12px;fill:#280b0b">!X2!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3381-5">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -330,9 +340,10 @@
              id="tspan3115-1-6-3-6"
              x="482.02005"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">Y2</tspan></text>
+             style="font-size:12px;fill:#280b0b">!Y2!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3393-8">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -351,7 +362,7 @@
              id="tspan3115-1-8-6-0"
              x="450.59146"
              y="608.51605"
-             style="font-size:12px;fill:#280b0b">S2</tspan></text>
+             style="font-size:12px;fill:#280b0b">!S2!</tspan></text>
       </g>
     </g>
     <g
@@ -369,6 +380,7 @@
            y="204.17578" />
       </g>
       <g
+      f2d="yes"
          id="g3399-8">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -387,9 +399,10 @@
              id="tspan3115-9-1"
              x="529.19171"
              y="503.15891"
-             style="font-size:12px;fill:#280b0b">C3</tspan></text>
+             style="font-size:12px;fill:#280b0b">!C3!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3387-4">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -408,9 +421,10 @@
              id="tspan3115-1-2-2-11"
              x="424.87717"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">X3</tspan></text>
+             style="font-size:12px;fill:#280b0b">!X3!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3381-1">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -429,9 +443,10 @@
              id="tspan3115-1-6-3-23"
              x="482.02005"
              y="416.3732"
-             style="font-size:12px;fill:#280b0b">Y3</tspan></text>
+             style="font-size:12px;fill:#280b0b">!Y3!</tspan></text>
       </g>
       <g
+      f2d="yes"
          id="g3393-6">
         <path
            transform="matrix(1.7426543,0,0,1.5321982,-493.07809,155.18924)"
@@ -450,10 +465,11 @@
              id="tspan3115-1-8-6-4"
              x="450.59146"
              y="608.51605"
-             style="font-size:12px;fill:#280b0b">S3</tspan></text>
+             style="font-size:12px;fill:#280b0b">!S3!</tspan></text>
       </g>
     </g>
     <g
+    f2d="yes"
        id="g3607">
       <desc
          id="desc3612">f2d</desc>
@@ -471,7 +487,7 @@
            y="606.00214"
            x="194.57288"
            id="tspan3115-1-8-6-0-9"
-           sodipodi:role="line">S4</tspan></text>
+           sodipodi:role="line">!S4!</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path3582"

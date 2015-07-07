@@ -1,0 +1,4 @@
+ghdl -a 4_bits_adder.vhdl
+ghdl -e testbench
+./testbench --stop-time=700ns --vcd=4bit.vcd
+

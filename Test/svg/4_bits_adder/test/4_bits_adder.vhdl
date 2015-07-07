@@ -31,7 +31,6 @@ begin
 		if rst='1'then
 			addloop: -- this is a label, mandatory on for ... generate loops
 			for i in 0 to n-1 loop  
-			  
 				sortie(i)<='0';
 			end loop;		
 		end if;
@@ -43,7 +42,6 @@ begin
 			if enable = '1' then
 				addloop: -- this is a label, mandatory on for ... generate loops
 				for i in 0 to n-1 loop  
-				   
 					sortie(i)<=entree(i);
 				end loop;				
 			end if;
@@ -160,9 +158,10 @@ begin
 
 	adderinstance:
     adder port map (  
-		  cin=>'1',
-          x => sortieReg,  
-          y => "00000000",           
+		  cin=>'0',
+          --~ x => sortieReg,  
+          x => "00000111",  
+          y => "00000001",           
           s => entreeReg,
           cout=>dev0
           );  
