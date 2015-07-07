@@ -32,6 +32,10 @@ function receiveMessage(event){
 	else if(event.data == "GoToNextTime"){
 		nextTime();
 	}
+	else if(event.data.contains("ListClickOn")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		onClickListChrono(param);
+	}
 	else{
 		alert("MAITRE \nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
 	}

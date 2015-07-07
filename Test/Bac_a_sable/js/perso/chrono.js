@@ -13,15 +13,14 @@ var valueColor = "#cc6600";
 var nBitsComplete = new Array();
 
 function onClickListChrono(val){
-	var options = document.getElementById("listChrono").querySelectorAll("option[value='"+val+"']")[0];
 	var i = myChronoVariables.indexOf(val);
 	var temp = new Array();
 	if(i==-1){
 		myChronoVariables.push(val);
-		options.innerHTML = "*"+val;
+		f1.postMessage("ChangeOption:*"+val,"*");
 	}
 	else{
-		options.innerHTML = val;
+		f1.postMessage("ChangeOption:"+val,"*");
 		for(var x in myChronoVariables){
 			if(x!=i){
 				temp.push(myChronoVariables[x]);
