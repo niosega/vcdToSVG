@@ -130,7 +130,7 @@ function changeTime(){
 								allGNode[i].childNodes[pathIndex[pI]].style.stroke=couleur;
 							}
 							//~ Change the color of the text
-							var x = key.split(".");
+							var x = value.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[textIndex].style.fill=couleur;
 							allGNode[i].childNodes[textIndex].childNodes[0].style.fill=couleur;
@@ -143,7 +143,7 @@ function changeTime(){
 								allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
 						}							
 						//~ Change the color of the text
-						var x = key.split(".");
+						var x = value.split(".");
 						allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 						allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
 						allGNode[i].childNodes[textIndex].childNodes[0].style.fill=wireBitsColor;
