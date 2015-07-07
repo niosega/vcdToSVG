@@ -1,6 +1,6 @@
 var textSize = 15;
 
-var selectWidth = 100;;
+var selectWidth = 100;
 var totalWidth;
 
 var varWidth = 100;
@@ -9,6 +9,8 @@ var varHeigth = 40;
 
 var background = "85,85,85";
 var valueColor = "#cc6600";
+
+var f1Width = -1;
 
 var nBitsComplete = new Array();
 
@@ -37,13 +39,17 @@ function createChrono(){
 	textSize = 15;
 
 	selectWidth = 100;
-	//~ selectWidth = document.getElementById("listChrono").getAttribute("width");
 
-	totalWidth = document.body.clientWidth - selectWidth;
-	document.getElementById("chronoZone").setAttribute("width",totalWidth);
+	//~ totalWidth = document.body.clientWidth;
+	totalWidth = f1Width;
+	
+	//~ document.getElementById("chronoZone").setAttribute("width",totalWidth);
+	f1.postMessage("SetChronoZoneWidth:"+totalWidth,"*");
 		
-	document.getElementById("gauche").style.width= 73;
-	document.getElementById("droite").style.width= totalWidth;
+	//~ document.getElementById("gauche").style.width= 73;
+	
+	
+	//~ document.getElementById("droite").style.width= totalWidth;
 	
 	varWidth = 100;
 	valueWidth = totalWidth-varWidth;
@@ -171,9 +177,8 @@ function createChrono(){
 		x += individualWidth;
 	}
 	
-	//~ document.getElementById("chronoZone").setAttribute("heigth",y);
-	document.getElementById("chronoZone").style.height=y;
-	document.getElementById("all").style.height=y;
+	//~ document.getElementById("chronoZone").style.height=y;
+	//~ document.getElementById("all").style.height=y;
 
 	printChrono(innerSVG);
 }
@@ -225,8 +230,7 @@ function createRect(x,y,dx,dy,fill="255,255,255",opacity="0.0"){
 
 //~ Print the text given in parameter into the chrono zone
 function printChrono(text){
-	var zone = document.getElementById("chronoZone");
-	zone.innerHTML =text;
+	f1.postMessage("ChangeSVGContent:"+text,"*");
 }
 
 function coucou(val){
@@ -272,11 +276,4 @@ function resize(){
 	if(stateOfFiles == true){
 		createChrono();
 	}
-}
-
-function setCTM(element, matrix) {
-  var m = matrix;
-  var s = "matrix(" + m.a + "," + m.b + "," + m.c + "," + m.d + "," + m.e + "," + m.f + ")";
-
-  element.setAttributeNS(null, "transform", s);
 }

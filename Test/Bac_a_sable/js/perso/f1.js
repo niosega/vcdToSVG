@@ -8,6 +8,7 @@ function receiveMessage(event){
 	if(event.data == "MasterSpeaking"){
 		master = event.source;
 		console.log("First Message from Master received");
+		master.postMessage("F1Width:"+document.body.clientWidth,"*");
 	}
 	else if(event.data.contains("ChangeListSize")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
@@ -21,6 +22,14 @@ function receiveMessage(event){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		changeOption(param);
 	}
+	else if(event.data.contains("ChangeSVGContent")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		changeSVGContent(param);
+	}
+	else if(event.data.contains("SetChronoZoneWidth")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		changeChronoSize(param);
+	}
 	else{
 		alert("F1\nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
 	}
@@ -30,6 +39,10 @@ function receiveMessage(event){
 function changeListSize(param){
 	var zone = document.getElementById("listChrono");
 	zone.size = param;
+}
+
+function changeChronoSize(param){
+	document.getElementById("chronoZone").setAttribute("width",param);
 }
 
 function changeListContent(param){
@@ -48,4 +61,9 @@ function changeOption(value){
 	}
 	var options = document.getElementById("listChrono").querySelectorAll("option[value='"+tempValue+"']")[0];
 	options.innerHTML = value;
+}
+
+function changeSVGContent(param){
+	var zone = document.getElementById("chronoZone");
+	zone.innerHTML =param;
 }
