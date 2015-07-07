@@ -69,6 +69,7 @@ function changeTime(){
 	//~ Update of the time zone 
 	var zone = document.getElementById("time");
 	zone.innerHTML = "Time : "+myTableauTemps[myTime];
+	f2.postMessage("ChangeTime:"+myTableauTemps[myTime],"*");
 
 	//~ Create an DOM representation of the SVG file, filtering only the <g></g> nodes 
 	var svgParser = new DOMParser();

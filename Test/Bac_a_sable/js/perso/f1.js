@@ -10,11 +10,11 @@ function receiveMessage(event){
 		console.log("First Message from Master received");
 	}
 	else if(event.data.contains("ChangeListSize")){
-		var param = event.data.substring(event.data.indexOf(":"),event.data.length);
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		changeListSize(param);
 	}
 	else if(event.data.contains("ChangeListContent")){
-		var param = event.data.substring(event.data.indexOf(":"),event.data.length);
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		changeListContent(param);
 	}
 	else{

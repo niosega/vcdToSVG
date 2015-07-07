@@ -26,7 +26,15 @@ function init(){
 }
 
 function receiveMessage(event){
-	alert("MAITRE \nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
+	if(event.data == "GoToPreviousTime"){
+		previousTime();
+	}
+	else if(event.data == "GoToNextTime"){
+		nextTime();
+	}
+	else{
+		alert("MAITRE \nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
+	}
 }
 
 //~ Ce qu'il se passe à l'ouverture du fichier VCD
