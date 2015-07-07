@@ -77,7 +77,6 @@ function changeTime(){
 	//~ Select all GNodes 
 	var allGNode = svgParser.querySelectorAll("g[f2d='yes']");
 	//~ var allGNode = svgParser.querySelectorAll("g[/desc[contains(text(),\"f2d\")]");
-	console.log(allGNode);
 
 	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
 		//~ Temporary variables 
@@ -134,6 +133,8 @@ function changeTime(){
 							var x = key.split(".");
 							allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 							allGNode[i].childNodes[textIndex].style.fill=couleur;
+							allGNode[i].childNodes[textIndex].childNodes[0].style.fill=couleur;
+
 						}
 					
 					else{
@@ -145,6 +146,8 @@ function changeTime(){
 						var x = key.split(".");
 						allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 						allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
+						allGNode[i].childNodes[textIndex].childNodes[0].style.fill=wireBitsColor;
+
 						//~ Change the key
 						allGNode[i].childNodes[keyIndex].style.fill=valueBitsColor;
 						allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;

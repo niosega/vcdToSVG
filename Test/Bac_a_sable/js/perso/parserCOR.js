@@ -6,9 +6,11 @@ function analyseCOR(COR){
 	var lines = COR.split("\n");
 	
 	for(var i in lines){
-		var currentLine = lines[i];
-		var splittedCurrentLine = currentLine.split(":");
-		SVGtoVCD.set(splittedCurrentLine[0],splittedCurrentLine[1]);
+		if(lines[i].length != 0){
+			var currentLine = lines[i];
+			var splittedCurrentLine = currentLine.split(":");
+			SVGtoVCD.set(splittedCurrentLine[0],splittedCurrentLine[1]);
+		}
 	}
 	
 	return SVGtoVCD;
