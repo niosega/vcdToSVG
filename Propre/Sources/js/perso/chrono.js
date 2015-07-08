@@ -179,6 +179,7 @@ function createChrono(){
 	
 	//~ document.getElementById("chronoZone").style.height=y;
 	//~ document.getElementById("all").style.height=y;
+	f1.postMessage("SetChronoZoneHeight:"+y,"*");
 
 	printChrono(innerSVG);
 }

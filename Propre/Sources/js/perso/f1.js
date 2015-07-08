@@ -9,6 +9,9 @@ function receiveMessage(event){
 		master = event.source;
 		master.postMessage("F1Width:"+document.body.clientWidth,"*");
 		console.log("First Message from Master received");
+		
+		changeSVGContent("<rect x=\"0\" y=\"0\" width=\"500\" heigth=\"10\" />");
+		
 	}
 	else if(event.data.contains("ChangeListSize")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
@@ -35,6 +38,11 @@ function receiveMessage(event){
 		changeChronoSize(param);
 		console.log("Set the width of the chrono zone");
 	}
+	else if(event.data.contains("SetChronoZoneHeight")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		changeChronoHeigth(param);
+		console.log("Set the heigth of the chrono zone");
+	}
 	else{
 		alert("F1\nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
 	}
@@ -48,6 +56,10 @@ function changeListSize(param){
 
 function changeChronoSize(param){
 	document.getElementById("chronoZone").setAttribute("width",param);
+}
+
+function changeChronoHeigth(param){
+	document.getElementById("chronoZone").style.height=param;
 }
 
 function changeListContent(param){
