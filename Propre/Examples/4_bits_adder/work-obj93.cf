@@ -1,0 +1,14 @@
+v 3
+file . "4_bits_adder.vhdl" "20150707221125.000" "20150708165048.103":
+  entity fulladder at 2( 46) + 0 on 47;
+  architecture rtl of fulladder at 10( 213) + 0 on 48;
+  entity registry at 17( 407) + 0 on 49;
+  architecture rtl of registry at 27( 708) + 0 on 50;
+  entity clock_generator at 55( 1250) + 0 on 51;
+  architecture behaviorial of clock_generator at 63( 1383) + 0 on 52;
+  entity adder at 76( 1735) + 0 on 53;
+  architecture rtl of adder at 88( 2089) + 0 on 54;
+  entity compteur at 120( 2788) + 0 on 55;
+  architecture rtl of compteur at 131( 3052) + 0 on 56;
+  entity testbench at 188( 4417) + 0 on 57;
+  architecture behaviorial of testbench at 196( 4535) + 0 on 58;

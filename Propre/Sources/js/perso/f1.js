@@ -84,3 +84,11 @@ function changeSVGContent(param){
 	var zone = document.getElementById("chronoZone");
 	zone.innerHTML =param;
 }
+
+function resize(){
+	master.postMessage("F1Resize:"+document.body.clientWidth,"*");
+}
+
+function changeToTimeT(when){
+	master.postMessage("ChangeToTime:"+when,"*");
+}

@@ -34,6 +34,11 @@ function receiveMessage(event){
 		nextTime();
 		console.log("Going to next time.");
 	}
+	else if(event.data.contains("ChangeToTime")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		changeToTimeT(param);
+		console.log("Going to next time.");
+	}
 	else if(event.data.contains("ListClickOn")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		onClickListChrono(param);
@@ -42,6 +47,12 @@ function receiveMessage(event){
 	else if(event.data.contains("F1Width")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		f1Width = param;
+		console.log("f1 width received : "+param);
+	}
+	else if(event.data.contains("F1Resize")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		f1Width = param;
+		resize();
 		console.log("f1 width received : "+param);
 	}
 	else{

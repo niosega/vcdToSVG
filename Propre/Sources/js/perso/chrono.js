@@ -40,17 +40,10 @@ function createChrono(){
 
 	selectWidth = 100;
 
-	//~ totalWidth = document.body.clientWidth;
-	totalWidth = f1Width;
+	totalWidth = f1Width - 30;
 	
-	//~ document.getElementById("chronoZone").setAttribute("width",totalWidth);
 	f1.postMessage("SetChronoZoneWidth:"+totalWidth,"*");
-		
-	//~ document.getElementById("gauche").style.width= 73;
-	
-	
-	//~ document.getElementById("droite").style.width= totalWidth;
-	
+			
 	varWidth = 100;
 	valueWidth = totalWidth-varWidth;
 	varHeigth = 40;
@@ -177,11 +170,10 @@ function createChrono(){
 		x += individualWidth;
 	}
 	
-	//~ document.getElementById("chronoZone").style.height=y;
-	//~ document.getElementById("all").style.height=y;
 	f1.postMessage("SetChronoZoneHeight:"+y,"*");
 
 	printChrono(innerSVG);
+
 }
 
 function createNBVariable(){

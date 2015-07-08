@@ -17,13 +17,13 @@
 	</style>
 </head>
 
-<body onload="init();">
+<body onload="init();" onresize="resize();">
 
 	Chronograms
 	<hr>
 	<div id="gauche" >
 		<select id="listChrono" onclick="onClickListChrono(this.value)" size="1" MULTIPLE></select>
-	</div>
+	</div><br><br>
 	<div id="droite" >
 		<svg id="chronoZone" width="100%" height="10" >
 			<rect x="0" y="0" width="10" height="10"/>

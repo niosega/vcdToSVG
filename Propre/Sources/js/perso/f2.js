@@ -27,7 +27,7 @@ function receiveMessage(event){
 }
 
 function changeSVGContent(param){
-	var zone = document.getElementById("drawingZone");
+	var zone = document.getElementById("drawing");
 	zone.innerHTML = param;
 }
 
