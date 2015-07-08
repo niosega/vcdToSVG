@@ -1,0 +1,32 @@
+<html>
+
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script language="Javascript" src="js/perso/index.js"></script>
+	<script language="Javascript" src="js/perso/init.js"></script>
+	<script language="Javascript" src="js/perso/analyse.js"></script>
+	<script language="Javascript" src="js/perso/parserVCD.js"></script>
+	<script language="Javascript" src="js/perso/parserSVG.js"></script>
+	<script language="Javascript" src="js/perso/parserCOR.js"></script>
+	<script language="Javascript" src="js/perso/chrono.js"></script>
+</head>
+
+<body onload="init();">
+
+	<center>
+		VCD : <input type='file' onchange='openVCDFile(event)' accept='.vcd' >
+		SVG : <input type='file' onchange='openSVGFile(event)' accept='.svg'>
+		COR : <input type='file' onchange='openCORFile(event)' accept='.cor'><br><br>
+		<div id="zoneBouton">
+			<div id="time"></div>
+			<input id="left" type="button" value="<=" onclick="previousTime();" />
+			<input id="button" type="button" value="Generate !" onclick="onClickButton();" />
+			<input id="right" type="button" value="=>" onclick="nextTime();" />
+		</div><br><br>
+	</center>
+
+
+
+</body>
+
+</html>
