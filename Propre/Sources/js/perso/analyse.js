@@ -93,6 +93,7 @@ function changeTime(){
 
 		//~ For all GNode 
 		for(var i=0;i<allGNode.length;i++){
+			
 			pathIndex.length=0;
 			
 			for(var j in allGNode[i].childNodes){
@@ -114,7 +115,10 @@ function changeTime(){
 			var textContent = allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data;
 
 			var splitTextContent = textContent.substring(1,textContent.length-1).split(":");
-				if(splitTextContent[0]==value){		
+				if(splitTextContent[0]==value){	
+					
+					allGNode[i].setAttribute("onClick","animateChrono('"+key+"','"+value+"');");
+						
 					if(myLength==1){	
 							//~ Select the right color depending on the key 
 							if(combien == 1 ){

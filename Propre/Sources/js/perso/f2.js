@@ -38,3 +38,7 @@ function previousTime(){
 function nextTime(){
 	master.postMessage("GoToNextTime","*");
 }
+
+function animateChrono(value,key){
+	master.postMessage("ListClickOn:"+value+"!"+key,"*");
+}

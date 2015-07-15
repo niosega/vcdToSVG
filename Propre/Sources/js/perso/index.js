@@ -40,8 +40,9 @@ function receiveMessage(event){
 		console.log("Going to next time.");
 	}
 	else if(event.data.contains("ListClickOn")){
-		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
-		onClickListChrono(param);
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.indexOf("!"));
+		var param2 = event.data.substring(event.data.indexOf("!")+1,event.data.length);
+		changeListChrono(param,param2);
 		console.log("onClickList event received.");
 	}
 	else if(event.data.contains("F1Width")){

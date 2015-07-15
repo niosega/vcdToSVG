@@ -14,6 +14,8 @@ var f1Width = -1;
 
 var nBitsComplete = new Array();
 
+var myChronoSVGVariables = new Array();
+
 function onClickListChrono(val){
 	var i = myChronoVariables.indexOf(val);
 	var temp = new Array();
@@ -30,6 +32,29 @@ function onClickListChrono(val){
 		}
 		myChronoVariables=null;
 		myChronoVariables=temp;
+	}
+	createChrono();
+}
+
+function changeListChrono(val,key){
+	var i = myChronoVariables.indexOf(val);
+	var temp = new Array();
+	var temp2 = new Array();
+	if(i==-1){
+		myChronoVariables.push(val);
+		myChronoSVGVariables.push(key);
+	}
+	else{
+		for(var x in myChronoVariables){
+			if(x!=i){
+				temp.push(myChronoVariables[x]);
+				temp2.push(myChronoSVGVariables[x]);
+			}
+		}
+		myChronoVariables=null;
+		myChronoVariables=temp;
+		myChronoSVGVariables=null;
+		myChronoSVGVariables=temp2;
 	}
 	createChrono();
 }
@@ -80,7 +105,8 @@ function createChrono(){
 		
 		if(myLength==1){
 			innerSVG += createRect(x,y,varWidth,varHeigth);
-			innerSVG += createText(x+5,y+textSize+10,myChronoVariables[i],textSize);
+			//~ innerSVG += createText(x+5,y+textSize+10,myChronoVariables[i],textSize);
+			innerSVG += createText(x+5,y+textSize+10,myChronoSVGVariables[i],textSize);
 			x += varWidth;
 			for(var myTime in myTableauTemps){
 				myListeVariables.forEach(function(valeur,cle){

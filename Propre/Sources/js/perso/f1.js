@@ -50,8 +50,8 @@ function receiveMessage(event){
 }
 
 function changeListSize(param){
-	var zone = document.getElementById("listChrono");
-	zone.size = param;
+	//~ var zone = document.getElementById("listChrono");
+	//~ zone.size = param;
 }
 
 function changeChronoSize(param){
@@ -63,8 +63,8 @@ function changeChronoHeigth(param){
 }
 
 function changeListContent(param){
-	var zone = document.getElementById("listChrono");
-	zone.innerHTML = param;
+	//~ var zone = document.getElementById("listChrono");
+	//~ zone.innerHTML = param;
 }
 
 function onClickListChrono(value){
@@ -72,12 +72,12 @@ function onClickListChrono(value){
 }
 
 function changeOption(value){
-	var tempValue = value;
-	if(value.contains("*")){
-		tempValue = value.substring(1,value.length);
-	}
-	var options = document.getElementById("listChrono").querySelectorAll("option[value='"+tempValue+"']")[0];
-	options.innerHTML = value;
+	//~ var tempValue = value;
+	//~ if(value.contains("*")){
+		//~ tempValue = value.substring(1,value.length);
+	//~ }
+	//~ var options = document.getElementById("listChrono").querySelectorAll("option[value='"+tempValue+"']")[0];
+	//~ options.innerHTML = value;
 }
 
 function changeSVGContent(param){
@@ -92,3 +92,5 @@ function resize(){
 function changeToTimeT(when){
 	master.postMessage("ChangeToTime:"+when,"*");
 }
+
+
