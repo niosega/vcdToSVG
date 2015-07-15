@@ -163,6 +163,8 @@ function onClickButton(){
 		
 		traitement();
 		createChrono();
+		
+		f2.postMessage("TimeLength:"+myTableauTemps.length,"*");
 	}
 	//~ If there is. 
 	else{

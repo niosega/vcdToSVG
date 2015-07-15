@@ -1,4 +1,5 @@
 var master = null;
+var timeLength = 0;
 
 function init(){
 	window.addEventListener("message", receiveMessage, false);
@@ -19,6 +20,11 @@ function receiveMessage(event){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		zone.innerHTML = param;
 		console.log("Change the time");
+	}
+	else if(event.data.contains("TimeLength")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		timeLength = param;
+		console.log("Time Length received.");
 	}
 	else{
 		alert("F2\nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);
@@ -41,4 +47,29 @@ function nextTime(){
 
 function animateChrono(value,key){
 	master.postMessage("ListClickOn:"+value+"!"+key,"*");
+}
+
+var myAnimation = null;
+var indexAnim = 0;
+var isAnim = false;
+
+function animate(tempo){
+	if(isAnim == false){
+		myAnimation = setInterval(myTimer,tempo*1000);
+		while(indexAnim < timeLength){}
+		stop();
+	}
+	else{
+		stop();
+	}
+}
+
+function stop(){
+	clearInterval(myAnimation);
+	console.log("STOP");
+}
+
+function myTimer(){
+	indexAnim++;
+	master.postMessage("GoToNextTime","*");
 }
