@@ -22,31 +22,10 @@ function traitement(){
 
 	//~ Parse the VCD file according to the previous list 
 	[myListeVariables,myTableauTemps] = parse(myVCD,list);
-	
-	//~ Change the size of listChrono
-	changeSize(list);
 	 
 	//~ Ask to print the drawing at time 0 
 	changeTime();
 	
-}
-
-function changeSize(list){
-	//~ Envoie la nouvelle taille de la liste 
-	var toSend ="ChangeListSize:"+list.length; 
-	f1.postMessage(toSend,"*");
-	
-	//~ Envoie le nouveau contenu de la liste 
-	toSend="ChangeListContent:"; 
-	for(var i in list){
-		if(myChronoVariables.indexOf(list[i])==-1){
-			toSend+="<option value="+list[i]+">"+list[i]+"</option>";
-		}
-		else{
-			toSend+="<option value="+list[i]+">*"+list[i]+"</option>";
-		}
-	}	
-	f1.postMessage(toSend,"*"); 
 }
 
 

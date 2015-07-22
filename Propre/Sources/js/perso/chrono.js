@@ -21,10 +21,8 @@ function onClickListChrono(val){
 	var temp = new Array();
 	if(i==-1){
 		myChronoVariables.push(val);
-		f1.postMessage("ChangeOption:*"+val,"*");
 	}
 	else{
-		f1.postMessage("ChangeOption:"+val,"*");
 		for(var x in myChronoVariables){
 			if(x!=i){
 				temp.push(myChronoVariables[x]);
