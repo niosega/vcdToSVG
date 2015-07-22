@@ -54,14 +54,6 @@ var indexAnim = 0;
 var isAnim = false;
 
 function animate(tempo){
-	//~ if(isAnim == false){
-		//~ myAnimation = setInterval(myTimer,tempo*1000);
-		//~ while(indexAnim < timeLength){}
-		//~ stop();
-	//~ }
-	//~ else{
-		//~ stop();
-	//~ }
 	myAnimation = setInterval(myTimer,tempo*1000);
 
 }
