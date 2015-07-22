@@ -14,12 +14,13 @@
 
 <body onload="init();">
 	
-	<div id="zoneBouton">
+	<div id="zoneBouton" style="display:inline-block;">
 		Simulation
 		<input id="left" type="button" value="<=" onclick="previousTime();" />
 		<input id="right" type="button" value="=>" onclick="nextTime();" />
-		<div id="time"  style="display:inline-block;"></div>
 		<input id="animate" type="button" value="Animate !" onclick="animate('1');" />
+		<input id="stop" type="button" value="Stop !" onclick="stop();" />
+		<div id="time"  style="display:inline-block;"></div>
 	</div>
 	<hr>
 	<div id="drawing" width="auto" >

@@ -77,7 +77,7 @@ function changeTime(){
 	
 	//~ Select all GNodes 
 	var allGNode = svgParser.querySelectorAll("g[f2d='yes']");
-	//~ var allGNode = svgParser.querySelectorAll("g[/desc[contains(text(),\"f2d\")]");
+	//~ var allGNode = svgParser.querySelectorAll("g[desc[contains(text(),\"f2d\")]");
 
 	mySVGtoVCD.forEach(function(key,value){ // key = svg value = vcd
 		//~ Temporary variables 
