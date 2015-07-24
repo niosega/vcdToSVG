@@ -53,7 +53,9 @@ var myAnimation = null;
 var indexAnim = 0;
 var isAnim = false;
 
-function animate(tempo){
+function animate(){
+	var tempoZone = document.getElementById("tempo");
+	var tempo = tempoZone.value;
 	myAnimation = setInterval(myTimer,tempo*1000);
 
 }

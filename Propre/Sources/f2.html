@@ -15,10 +15,11 @@
 <body onload="init();">
 	
 	<div id="zoneBouton" style="display:inline-block;">
-		Simulation
+		Simulation<br>
 		<input id="left" type="button" value="<=" onclick="previousTime();" />
 		<input id="right" type="button" value="=>" onclick="nextTime();" />
-		<input id="animate" type="button" value="Animate !" onclick="animate('1');" />
+		<input id="tempo" type="text" size="2" value="1"/>
+		<input id="animate" type="button" value="Animate !" onclick="animate();" />
 		<input id="stop" type="button" value="Stop !" onclick="stop();" />
 		<div id="time"  style="display:inline-block;"></div>
 	</div>
