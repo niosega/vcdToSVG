@@ -79,10 +79,11 @@ function createChrono3(){
 
 	totalWidth = f1Width - 30;
 	
-	f1.postMessage("SetChronoZoneWidth:"+totalWidth,"*");
+	f1.postMessage("SetChronoZoneWidth:"+(130*myTableauTemps.length+100),"*");
 			
 	varWidth = 100;
-	valueWidth = totalWidth-varWidth;
+	//~ valueWidth = totalWidth-varWidth;
+	valueWidth = 130*myTableauTemps.length - varWidth,
 	varHeigth = 40;
 	
 	var totalHeigth = 0;
