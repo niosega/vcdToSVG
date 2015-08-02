@@ -58,6 +58,20 @@ function changeListChrono(val,key){
 }
 
 function createChrono(){
+	totalWidth = f1Width - 30;	
+	varWidth = 100;
+	valueWidth = totalWidth-varWidth;
+	var individualWidth = valueWidth/myTableauTemps.length;
+	
+	if(individualWidth > 130 ){
+		createChrono2();
+	}
+	else{
+		createChrono3();
+	}
+}
+
+function createChrono3(){
 	var innerSVG = "";
 	textSize = 15;
 
