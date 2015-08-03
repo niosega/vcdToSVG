@@ -99,6 +99,7 @@ function createChrono3(){
 	var individualWidth = 130;
 	innerSVG += createRect(varWidth,0,valueWidth,varHeigth);
 	for(var i in myTableauTemps){
+		innerSVG += createClickableRect(x+varWidth,0,individualWidth,varHeigth,"changeToTimeT('"+i+"');","255,255,255",0.0);
 		innerSVG += createClickableText(x+varWidth+5,y+textSize+10,myTableauTemps[i],textSize,"changeToTimeT('"+i+"');");
 		x += individualWidth;
 	}
@@ -242,6 +243,7 @@ function createChrono2(){
 	var individualWidth = valueWidth/myTableauTemps.length;
 	innerSVG += createRect(varWidth,0,valueWidth,varHeigth);
 	for(var i in myTableauTemps){
+		innerSVG += createClickableRect(x+varWidth,0,individualWidth,varHeigth,"changeToTimeT('"+i+"');","255,255,255",0.0);
 		innerSVG += createClickableText(x+varWidth+5,y+textSize+10,myTableauTemps[i],textSize,"changeToTimeT('"+i+"');");
 		x += individualWidth;
 	}
