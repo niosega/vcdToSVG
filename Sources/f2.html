@@ -2,7 +2,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<script language="Javascript" src="js/perso/f2.js"></script>
+	<script language="Javascript" src="js/f2.js"></script>
 	<style>
 		.drawing {
 		  width: auto;
@@ -14,14 +14,17 @@
 
 <body onload="init();">
 	
+	Current time:
 	<div id="zoneBouton" style="display:inline-block;">
-		Simulation<br>
 		<input id="left" type="button" value="<=" onclick="previousTime();" />
+		<div id="time"  style="display:inline-block;"></div>
 		<input id="right" type="button" value="=>" onclick="nextTime();" />
-		<input id="tempo" type="text" size="2" value="1"/>
+	</div>
+	<span> </span>
+	<div id="zoneBouton" style="display:inline-block;  border: thin solid black">
+		Tempo: <input id="tempo" type="text" size="2" value="1"/>s
 		<input id="animate" type="button" value="Animate !" onclick="animate();" />
 		<input id="stop" type="button" value="Stop !" onclick="stop();" />
-		<div id="time"  style="display:inline-block;"></div>
 	</div>
 	<hr>
 	<div id="drawing" width="auto" >
