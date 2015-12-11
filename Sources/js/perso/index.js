@@ -19,20 +19,21 @@ var myChronoVariables = new Array();
 var f1= null;
 var f2= null;
 
+
 function init(){
-	
-	window.addEventListener("message", receiveMessage, false);
-	
+		window.addEventListener("message", receiveMessage, false);
 }
+
+
 
 function receiveMessage(event){
 	if(event.data == "GoToPreviousTime"){
 		previousTime();
-		console.log("Going to previous time.");
+		console.log("Going to previous VCD time.");
 	}
 	else if(event.data == "GoToNextTime"){
 		nextTime();
-		console.log("Going to next time.");
+		console.log("Going to next VCD time.");
 	}
 	else if(event.data.contains("ChangeToTime")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
@@ -142,8 +143,12 @@ function openCORFile(event){
 	reader.readAsText(file);
 }
 
+
+
+
+
 //~ Ce qu'il se passe quand on clique sur le bouton 
-function onClickButton(){
+function launchViewers(){
 	
 	stateOfFiles = myVCD != null && mySVG != null && myCOR != null ;
 	//~ If there is no file missing 
@@ -154,14 +159,14 @@ function onClickButton(){
 		f2 = window.open("f2.html", "f2", strWindowFeatures);
 		
 		//~ Weird but otherwise we cannot use f2 
-		f3 = window.open("http://www.google.fr", "f3", strWindowFeatures);
+		f3 = window.open("dummy.html", "f3", strWindowFeatures);
 		f3.close();
 		
 		//~ Speak to the slaves so that they can know their master 
 		f1.postMessage("MasterSpeaking","*");
 		f2.postMessage("MasterSpeaking","*");
 		
-		traitement();
+		parseAndRun();
 		createChrono();
 		
 		f2.postMessage("TimeLength:"+myTableauTemps.length,"*");

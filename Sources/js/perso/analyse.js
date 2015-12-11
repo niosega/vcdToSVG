@@ -1,15 +1,15 @@
 //~ Some common RGB values 
-var zeroColor = "#ff0000"; //rouge
-var oneColor = "#00dd00"; // vert
-var undefinedColor = "#0000ff"; // bleu
-var wireBitsColor = "#ff0088"; // rose
+var zeroColor      = "#006600"; // dark green
+var oneColor       = "#00ee00"; // green
+var undefinedColor = "#ff0000"; // red
+var wireBitsColor  = "#ff0088"; // rose
 var valueBitsColor = "#003300"; // vert dégueu
 
 var stateOfFiles = false;
 
 
 //~ Call the VCD and SVG parser and begin the animation 
-function traitement(){
+function parseAndRun(){
 	
 	//~ Find the correspondance between SVG and VCD
 	mySVGtoVCD = analyseCOR(myCOR); // svg:vcd
@@ -30,11 +30,11 @@ function traitement(){
 
 
 //~ Return the value of the variable with VHDL name given in parameters at time myTime 
-function getValueForTime(nomVHDL){
+function getValueForTime(nameInVHDL){
 	var combien = 0;
 	var myLength = -1; 
 	myListeVariables.forEach(function(valeur,cle){
-		if((valeur.scope+valeur.name)==nomVHDL){
+		if((valeur.scope+valeur.name)==nameInVHDL){
 			combien = valeur.afficheTempsA(myTableauTemps[myTime]);
 			myLength=valeur.length;
 		}
@@ -50,7 +50,7 @@ function changeTime(){
 	zone.innerHTML = "Time : "+myTableauTemps[myTime];
 	f2.postMessage("ChangeTime:"+myTableauTemps[myTime],"*");
 
-	//~ Create an DOM representation of the SVG file, filtering only the <g></g> nodes 
+	//~ Create a DOM representation of the SVG file, filtering only the <g></g> nodes 
 	var svgParser = new DOMParser();
 	svgParser = svgParser.parseFromString(mySVG, "image/svg+xml");	
 	
@@ -140,11 +140,11 @@ function changeTime(){
 		}
 	},mySVGtoVCD);
 	
-	
+
 	//~ Print to the SVG zone the computed SVG 
 	var s = new XMLSerializer();
-	var contenu = s.serializeToString(svgParser);
-	afficheSVG(contenu);
+	var content = s.serializeToString(svgParser);
+	afficheSVG(content);
 }
 
 //~ Print the text given in parameter into the SVG zone 
