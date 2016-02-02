@@ -1,0 +1,31 @@
+$date
+  Thu Jul  9 10:11:34 2015
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module mux1 $end
+$var reg 1 # s $end
+$var reg 8 $ a[7:0] $end
+$var reg 8 ! b[7:0] $end
+$var reg 8 " c[7:0] $end
+$upscope $end
+$enddefinitions $end
+#0
+bUUUUUUUU $
+bUUUUUUUU !
+bUUUUUUUU "
+U#
+#10
+b11111111 $
+b00000000 !
+b11111111 "
+1#
+#20
+b00000000 $
+b11111111 !
+b00000000 "
+0#

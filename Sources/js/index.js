@@ -54,8 +54,13 @@ function receiveMessage(event){
 	else if(event.data.contains("F1Resize")){
 		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
 		f1Width = param;
-		resize();
-		console.log("f1 width received : "+param);
+		resizeWindows();
+		console.log("f1 width rezised : "+param);
+	}
+	else if(event.data.contains("ClickOnListDescending")){
+		var param = event.data.substring(event.data.indexOf(":")+1,event.data.length);
+		clickOnListDescending(param);
+		console.log("f1 width rezised : "+param);
 	}
 	else{
 		alert("MAITRE \nData : "+event.data+"\nSource : "+event.source+"\nOrigin : "+event.origin);

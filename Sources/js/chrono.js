@@ -59,7 +59,7 @@ function changeListChrono(val,key){
 
 function createChrono(){
 	totalWidth = f1Width - 30;	
-	varWidth = 100;
+	varWidth = 150;
 	valueWidth = totalWidth-varWidth;
 	var individualWidth = valueWidth/myTableauTemps.length;
 	
@@ -81,7 +81,7 @@ function createChrono3(){
 	
 	f1.postMessage("SetChronoZoneWidth:"+(130*myTableauTemps.length+100+10),"*");
 			
-	varWidth = 100;
+	varWidth = 150;
 	//~ valueWidth = totalWidth-varWidth;
 	valueWidth = 130*myTableauTemps.length - varWidth +100;
 	varHeigth = 40;
@@ -154,7 +154,7 @@ function createChrono3(){
 			
 			x = 0;
 			innerSVG += createRect(x,y,varWidth,varHeigth);
-			innerSVG += createClickableText(x+5,y+textSize+10,myChronoVariables[i]+direction,textSize,"coucou('"+myChronoVariables[i]+"');");
+			innerSVG += createClickableText(x+5,y+textSize+10,myChronoVariables[i]+direction,textSize,"clickOnListDescending('"+myChronoVariables[i]+"');");
 			
 			x += varWidth;
 			for(var myTime in myTableauTemps){
@@ -227,7 +227,7 @@ function createChrono2(){
 	
 	f1.postMessage("SetChronoZoneWidth:"+totalWidth,"*");
 			
-	varWidth = 100;
+	varWidth = 150;
 	valueWidth = totalWidth-varWidth;
 	varHeigth = 40;
 	
@@ -298,7 +298,7 @@ function createChrono2(){
 			
 			x = 0;
 			innerSVG += createRect(x,y,varWidth,varHeigth);
-			innerSVG += createClickableText(x+5,y+textSize+10,myChronoVariables[i]+direction,textSize,"coucou('"+myChronoVariables[i]+"');");
+			innerSVG += createClickableText(x+5,y+textSize+10,myChronoVariables[i]+direction,textSize,"clickOnListDescending('"+myChronoVariables[i]+"');");
 			
 			x += varWidth;
 			for(var myTime in myTableauTemps){
@@ -411,8 +411,7 @@ function printChrono(text){
 	f1.postMessage("ChangeSVGContent:"+text,"*");
 }
 
-function coucou(val){
-	affiche(val);
+function clickOnListDescending(val){
 	var i = nBitsComplete.indexOf(val);
 	var temp = new Array();
 	if(i==-1){
@@ -450,8 +449,6 @@ function bin2hex(val){
 	return toRet2.toUpperCase();
 }
 
-function resize(){
-	if(stateOfFiles == true){
-		createChrono();
-	}
+function resizeWindows(){
+	createChrono();
 }

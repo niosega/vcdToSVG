@@ -98,7 +98,8 @@ function changeTime(){
 					
 					allGNode[i].setAttribute("onClick","animateChrono('"+key+"','"+value+"');");
 						
-					if(myLength==1){	
+					if(myLength==1){
+						
 							//~ Select the right color depending on the key 
 							if(combien == 1 ){
 								couleur=oneColor;
@@ -122,6 +123,7 @@ function changeTime(){
 						}
 					
 					else{
+						
 						//~ Change the color of the wires
 						for(var pI in pathIndex){
 								allGNode[i].childNodes[pathIndex[pI]].style.stroke=wireBitsColor;
@@ -131,7 +133,7 @@ function changeTime(){
 						allGNode[i].childNodes[textIndex].childNodes[0].childNodes[0].data = x[x.length-1];
 						allGNode[i].childNodes[textIndex].style.fill=wireBitsColor;
 						allGNode[i].childNodes[textIndex].childNodes[0].style.fill=wireBitsColor;
-
+						
 						//~ Change the key
 						allGNode[i].childNodes[keyIndex].style.fill=valueBitsColor;
 						allGNode[i].childNodes[keyIndex].childNodes[0].textContent = combien;

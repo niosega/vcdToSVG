@@ -61,4 +61,6 @@ function changeToTimeT(when){
 	master.postMessage("ChangeToTime:"+when,"*");
 }
 
-
+function clickOnListDescending(where){
+	master.postMessage("ClickOnListDescending:"+where,"*");
+}
